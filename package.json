@@ -12,5 +12,8 @@
   "dependencies": {
     "express": "^4.15.3",
     "request-promise": "^4.2.1"
+  },
+  "engines":{
+    "node": "7.5.0"
   }
 }
