@@ -1,0 +1,268 @@
+[
+
+    {
+        "ID": 95187,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.063806,
+        "Longitude": -82.418988000000013,
+        "Name": "Communication Sciences   ",
+        "RtpiNumber": 222,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95325,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.062265,
+        "Longitude": -82.41951,
+        "Name": "Hope Lodge",
+        "RtpiNumber": 230,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95328,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.059957,
+        "Longitude": -82.417771000000016,
+        "Name": "Juniper-Poplar",
+        "RtpiNumber": 214,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95339,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.057783,
+        "Longitude": -82.415798,
+        "Name": "Research & Development",
+        "RtpiNumber": 204,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95345,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.059207,
+        "Longitude": -82.413011999999981,
+        "Name": "Library LIB",
+        "RtpiNumber": 102,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95349,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.059175,
+        "Longitude": -82.413420999999971,
+        "Name": "Math & Engineering ",
+        "RtpiNumber": 101,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 231868,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.05652,
+        "Longitude": -82.410131999999976,
+        "Name": "Alumni Center",
+        "RtpiNumber": 108,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 285096,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.056553,
+        "Longitude": -82.408635,
+        "Name": "Patel Center",
+        "RtpiNumber": 110,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95365,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.057674,
+        "Longitude": -82.405355999999983,
+        "Name": "Softball Stadium",
+        "RtpiNumber": 166,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95370,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.059784,
+        "Longitude": -82.404772999999977,
+        "Name": "Baseball Field",
+        "RtpiNumber": 162,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95374,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.06013,
+        "Longitude": -82.402696999999989,
+        "Name": "Park and Ride Lot 18 at Elm Drive",
+        "RtpiNumber": 158,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95378,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.063067,
+        "Longitude": -82.402698999999984,
+        "Name": "Park and Ride Lot 18 midway",
+        "RtpiNumber": 154,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95381,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.065648,
+        "Longitude": -82.402693,
+        "Name": "Park and Ride Lot 18 at Baptist Student Center",
+        "RtpiNumber": 150,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95389,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.065764,
+        "Longitude": -82.407390000000021,
+        "Name": "Greek Park ",
+        "RtpiNumber": 446,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95524,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.067751,
+        "Longitude": -82.407601,
+        "Name": "Greek Housing",
+        "RtpiNumber": 432,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95529,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.066647,
+        "Longitude": -82.40803,
+        "Name": "Cypress Apartments",
+        "RtpiNumber": 430,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95533,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.065759,
+        "Longitude": -82.409847000000013,
+        "Name": "Holly Security Office",
+        "RtpiNumber": 426,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95535,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.065787,
+        "Longitude": -82.412040999999988,
+        "Name": "Epsilon Hall",
+        "RtpiNumber": 418,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95548,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.064358,
+        "Longitude": -82.413793,
+        "Name": "Marshall Student Center",
+        "RtpiNumber": 401,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95554,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.06713,
+        "Longitude": -82.413168999999982,
+        "Name": "Andros",
+        "RtpiNumber": 414,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95557,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.067715,
+        "Longitude": -82.414653999999985,
+        "Name": "Park and Ride 43 East",
+        "RtpiNumber": 330,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95561,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.067885,
+        "Longitude": -82.416518,
+        "Name": "Park and Ride Lot 43 West",
+        "RtpiNumber": 328,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95569,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.066402,
+        "Longitude": -82.417693999999983,
+        "Name": "Laurel Garage ",
+        "RtpiNumber": 326,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    },
+    {
+        "ID": 95576,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.064852,
+        "Longitude": -82.419015,
+        "Name": "Eye Institute",
+        "RtpiNumber": 226,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": true
+    }
+
+]

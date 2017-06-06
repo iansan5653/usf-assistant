@@ -1,0 +1,290 @@
+[
+
+    {
+        "ID": 95704,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.065656,
+        "Longitude": -82.411269,
+        "Name": "Holly Mail Room",
+        "RtpiNumber": 421,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95706,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.065666,
+        "Longitude": -82.409483000000023,
+        "Name": "Maple Suites at Holly",
+        "RtpiNumber": 425,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95709,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.065016,
+        "Longitude": -82.408163,
+        "Name": "Maple Suites",
+        "RtpiNumber": 115,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95716,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.061319,
+        "Longitude": -82.408775999999989,
+        "Name": "Social Science",
+        "RtpiNumber": 119,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95718,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.060285,
+        "Longitude": -82.408798999999988,
+        "Name": "Cooper Hall",
+        "RtpiNumber": 121,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95720,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.058653,
+        "Longitude": -82.408796,
+        "Name": "Business Administration",
+        "RtpiNumber": 125,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95727,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.0573,
+        "Longitude": -82.409642000000019,
+        "Name": "Business North",
+        "RtpiNumber": 129,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95345,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.059207,
+        "Longitude": -82.413011999999981,
+        "Name": "Library LIB",
+        "RtpiNumber": 102,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95349,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.059175,
+        "Longitude": -82.413420999999971,
+        "Name": "Math & Engineering ",
+        "RtpiNumber": 101,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95746,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.058807,
+        "Longitude": -82.408646999999974,
+        "Name": "Sundome West",
+        "RtpiNumber": 126,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95748,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.060273,
+        "Longitude": -82.408647999999971,
+        "Name": "Rec Center",
+        "RtpiNumber": 122,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95750,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.061179,
+        "Longitude": -82.408647999999971,
+        "Name": "CW Young Hall ",
+        "RtpiNumber": 120,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95756,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.064776,
+        "Longitude": -82.408053999999993,
+        "Name": "Tennis Courts",
+        "RtpiNumber": 116,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95533,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.065759,
+        "Longitude": -82.409847000000013,
+        "Name": "Holly Security Office",
+        "RtpiNumber": 426,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95535,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.065787,
+        "Longitude": -82.412040999999988,
+        "Name": "Epsilon Hall",
+        "RtpiNumber": 418,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95554,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.06713,
+        "Longitude": -82.413168999999982,
+        "Name": "Andros",
+        "RtpiNumber": 414,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95771,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.0723,
+        "Longitude": -82.409909999999968,
+        "Name": "Rocky's",
+        "RtpiNumber": 801,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95774,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.075023,
+        "Longitude": -82.409952999999973,
+        "Name": "Fairway One",
+        "RtpiNumber": 803,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95777,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.077039,
+        "Longitude": -82.409993999999983,
+        "Name": "The Claw",
+        "RtpiNumber": 807,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95785,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.080382,
+        "Longitude": -82.411371000000031,
+        "Name": "Oak Ramble",
+        "RtpiNumber": 813,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95787,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.080391,
+        "Longitude": -82.412427999999977,
+        "Name": "Skipper Road",
+        "RtpiNumber": 815,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95794,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.078266,
+        "Longitude": -82.414147000000014,
+        "Name": "Willow Brooke",
+        "RtpiNumber": 821,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95798,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.076153,
+        "Longitude": -82.414053999999965,
+        "Name": "Cambridge Woods Drive",
+        "RtpiNumber": 827,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95804,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.072141,
+        "Longitude": -82.414037000000008,
+        "Name": "40FIFTY Lofts",
+        "RtpiNumber": 829,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95813,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.067995,
+        "Longitude": -82.413269000000014,
+        "Name": "Palm & Laurel",
+        "RtpiNumber": 411,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95548,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.064358,
+        "Longitude": -82.413793,
+        "Name": "Marshall Student Center",
+        "RtpiNumber": 401,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    }
+
+]

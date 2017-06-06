@@ -1,0 +1,2174 @@
+[
+  {
+    "Name": "Communication Sciences   ",
+    "ID": 95187,
+    "Number": 222,
+    "Latitude": 28.063806,
+    "Longitude": -82.41898800000001,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Hope Lodge",
+    "ID": 95325,
+    "Number": 230,
+    "Latitude": 28.062265,
+    "Longitude": -82.41951,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Juniper-Poplar",
+    "ID": 95328,
+    "Number": 214,
+    "Latitude": 28.059957,
+    "Longitude": -82.41777100000002,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Research & Development",
+    "ID": 95339,
+    "Number": 204,
+    "Latitude": 28.057783,
+    "Longitude": -82.415798,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Library LIB",
+    "ID": 95345,
+    "Number": 102,
+    "Latitude": 28.059207,
+    "Longitude": -82.41301199999998,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      },
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Math & Engineering ",
+    "ID": 95349,
+    "Number": 101,
+    "Latitude": 28.059175,
+    "Longitude": -82.41342099999997,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      },
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Alumni Center",
+    "ID": 231868,
+    "Number": 108,
+    "Latitude": 28.05652,
+    "Longitude": -82.41013199999998,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Patel Center",
+    "ID": 285096,
+    "Number": 110,
+    "Latitude": 28.056553,
+    "Longitude": -82.408635,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Softball Stadium",
+    "ID": 95365,
+    "Number": 166,
+    "Latitude": 28.057674,
+    "Longitude": -82.40535599999998,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Baseball Field",
+    "ID": 95370,
+    "Number": 162,
+    "Latitude": 28.059784,
+    "Longitude": -82.40477299999998,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Park and Ride Lot 18 at Elm Drive",
+    "ID": 95374,
+    "Number": 158,
+    "Latitude": 28.06013,
+    "Longitude": -82.40269699999999,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Park and Ride Lot 18 midway",
+    "ID": 95378,
+    "Number": 154,
+    "Latitude": 28.063067,
+    "Longitude": -82.40269899999998,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Park and Ride Lot 18 at Baptist Student Center",
+    "ID": 95381,
+    "Number": 150,
+    "Latitude": 28.065648,
+    "Longitude": -82.402693,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Greek Park ",
+    "ID": 95389,
+    "Number": 446,
+    "Latitude": 28.065764,
+    "Longitude": -82.40739000000002,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Greek Housing",
+    "ID": 95524,
+    "Number": 432,
+    "Latitude": 28.067751,
+    "Longitude": -82.407601,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Cypress Apartments",
+    "ID": 95529,
+    "Number": 430,
+    "Latitude": 28.066647,
+    "Longitude": -82.40803,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Holly Security Office",
+    "ID": 95533,
+    "Number": 426,
+    "Latitude": 28.065759,
+    "Longitude": -82.40984700000001,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Epsilon Hall",
+    "ID": 95535,
+    "Number": 418,
+    "Latitude": 28.065787,
+    "Longitude": -82.41204099999999,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Marshall Student Center",
+    "ID": 95548,
+    "Number": 401,
+    "Latitude": 28.064358,
+    "Longitude": -82.413793,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      },
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      },
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Andros",
+    "ID": 95554,
+    "Number": 414,
+    "Latitude": 28.06713,
+    "Longitude": -82.41316899999998,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      },
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Park and Ride 43 East",
+    "ID": 95557,
+    "Number": 330,
+    "Latitude": 28.067715,
+    "Longitude": -82.41465399999998,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      }
+    ]
+  },
+  {
+    "Name": "Park and Ride Lot 43 West",
+    "ID": 95561,
+    "Number": 328,
+    "Latitude": 28.067885,
+    "Longitude": -82.416518,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      }
+    ]
+  },
+  {
+    "Name": "Laurel Garage ",
+    "ID": 95569,
+    "Number": 326,
+    "Latitude": 28.066402,
+    "Longitude": -82.41769399999998,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      },
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Eye Institute",
+    "ID": 95576,
+    "Number": 226,
+    "Latitude": 28.064852,
+    "Longitude": -82.419015,
+    "Routes": [
+      {
+        "ID": 423,
+        "Name": "Route A",
+        "SortName": "A Route A",
+        "Letter": "A"
+      }
+    ]
+  },
+  {
+    "Name": "Morsani Center",
+    "ID": 95626,
+    "Number": 312,
+    "Latitude": 28.066063,
+    "Longitude": -82.41921200000002,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      },
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Holly at Magnolia Drive",
+    "ID": 95629,
+    "Number": 314,
+    "Latitude": 28.066069,
+    "Longitude": -82.42082700000003,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      },
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "The WELL (Lot 34)",
+    "ID": 1569445,
+    "Number": 317,
+    "Latitude": 28.065136,
+    "Longitude": -82.423631,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "College of Nursing",
+    "ID": 1569460,
+    "Number": 318,
+    "Latitude": 28.06439,
+    "Longitude": -82.42377299999998,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Westside Conference Center",
+    "ID": 95654,
+    "Number": 340,
+    "Latitude": 28.0668421466551,
+    "Longitude": -82.423937022686,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      }
+    ]
+  },
+  {
+    "Name": "College of Public Health",
+    "ID": 95660,
+    "Number": 342,
+    "Latitude": 28.0672330850422,
+    "Longitude": -82.42498308420181,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      }
+    ]
+  },
+  {
+    "Name": "Continuing Education",
+    "ID": 95666,
+    "Number": 344,
+    "Latitude": 28.0679876617572,
+    "Longitude": -82.42540419101721,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      }
+    ]
+  },
+  {
+    "Name": "Chiles Center",
+    "ID": 95674,
+    "Number": 346,
+    "Latitude": 28.0687876216732,
+    "Longitude": -82.42339789867401,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      }
+    ]
+  },
+  {
+    "Name": "School of Physical Therapy",
+    "ID": 1569446,
+    "Number": 348,
+    "Latitude": 28.0684248319783,
+    "Longitude": -82.4182798404945,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      }
+    ]
+  },
+  {
+    "Name": "Child Development Center",
+    "ID": 1569447,
+    "Number": 350,
+    "Latitude": 28.0675181039214,
+    "Longitude": -82.41872549057007,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      }
+    ]
+  },
+  {
+    "Name": "Morsani Advanced Healthcare",
+    "ID": 1569448,
+    "Number": 352,
+    "Latitude": 28.0669959534291,
+    "Longitude": -82.41900980472559,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      }
+    ]
+  },
+  {
+    "Name": "School of Music North",
+    "ID": 95687,
+    "Number": 305,
+    "Latitude": 28.06546,
+    "Longitude": -82.41792099999998,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      },
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Fine Arts Studio",
+    "ID": 95691,
+    "Number": 303,
+    "Latitude": 28.064846,
+    "Longitude": -82.416357,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      },
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Theater",
+    "ID": 95692,
+    "Number": 301,
+    "Latitude": 28.064859,
+    "Longitude": -82.414694,
+    "Routes": [
+      {
+        "ID": 425,
+        "Name": "Route B",
+        "SortName": "B Route B",
+        "Letter": "B"
+      },
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Holly Mail Room",
+    "ID": 95704,
+    "Number": 421,
+    "Latitude": 28.065656,
+    "Longitude": -82.411269,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Maple Suites at Holly",
+    "ID": 95706,
+    "Number": 425,
+    "Latitude": 28.065666,
+    "Longitude": -82.40948300000002,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Maple Suites",
+    "ID": 95709,
+    "Number": 115,
+    "Latitude": 28.065016,
+    "Longitude": -82.408163,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Social Science",
+    "ID": 95716,
+    "Number": 119,
+    "Latitude": 28.061319,
+    "Longitude": -82.40877599999999,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Cooper Hall",
+    "ID": 95718,
+    "Number": 121,
+    "Latitude": 28.060285,
+    "Longitude": -82.40879899999999,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Business Administration",
+    "ID": 95720,
+    "Number": 125,
+    "Latitude": 28.058653,
+    "Longitude": -82.408796,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Business North",
+    "ID": 95727,
+    "Number": 129,
+    "Latitude": 28.0573,
+    "Longitude": -82.40964200000002,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Sundome West",
+    "ID": 95746,
+    "Number": 126,
+    "Latitude": 28.058807,
+    "Longitude": -82.40864699999997,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Rec Center",
+    "ID": 95748,
+    "Number": 122,
+    "Latitude": 28.060273,
+    "Longitude": -82.40864799999997,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "CW Young Hall ",
+    "ID": 95750,
+    "Number": 120,
+    "Latitude": 28.061179,
+    "Longitude": -82.40864799999997,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Tennis Courts",
+    "ID": 95756,
+    "Number": 116,
+    "Latitude": 28.064776,
+    "Longitude": -82.40805399999999,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Rocky's",
+    "ID": 95771,
+    "Number": 801,
+    "Latitude": 28.0723,
+    "Longitude": -82.40990999999997,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Fairway One",
+    "ID": 95774,
+    "Number": 803,
+    "Latitude": 28.075023,
+    "Longitude": -82.40995299999997,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "The Claw",
+    "ID": 95777,
+    "Number": 807,
+    "Latitude": 28.077039,
+    "Longitude": -82.40999399999998,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Oak Ramble",
+    "ID": 95785,
+    "Number": 813,
+    "Latitude": 28.080382,
+    "Longitude": -82.41137100000003,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Skipper Road",
+    "ID": 95787,
+    "Number": 815,
+    "Latitude": 28.080391,
+    "Longitude": -82.41242799999998,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Willow Brooke",
+    "ID": 95794,
+    "Number": 821,
+    "Latitude": 28.078266,
+    "Longitude": -82.41414700000001,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Cambridge Woods Drive",
+    "ID": 95798,
+    "Number": 827,
+    "Latitude": 28.076153,
+    "Longitude": -82.41405399999996,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "40FIFTY Lofts",
+    "ID": 95804,
+    "Number": 829,
+    "Latitude": 28.072141,
+    "Longitude": -82.41403700000001,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Palm & Laurel",
+    "ID": 95813,
+    "Number": 411,
+    "Latitude": 28.067995,
+    "Longitude": -82.41326900000001,
+    "Routes": [
+      {
+        "ID": 426,
+        "Name": "Route C",
+        "SortName": "C Route C",
+        "Letter": "C"
+      }
+    ]
+  },
+  {
+    "Name": "Post Office",
+    "ID": 95964,
+    "Number": 302,
+    "Latitude": 28.064944,
+    "Longitude": -82.41420099999999,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Parking & Transportation",
+    "ID": 95966,
+    "Number": 304,
+    "Latitude": 28.064939,
+    "Longitude": -82.41655800000001,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Central Receiving",
+    "ID": 231866,
+    "Number": 306,
+    "Latitude": 28.06549,
+    "Longitude": -82.41781800000001,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Holly at Banyan",
+    "ID": 95632,
+    "Number": 316,
+    "Latitude": 28.066078,
+    "Longitude": -82.423497,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Children Medical Svcs",
+    "ID": 95977,
+    "Number": 319,
+    "Latitude": 28.065978,
+    "Longitude": -82.42453,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "UATC to Mall/ Library",
+    "ID": 95985,
+    "Number": 716,
+    "Latitude": 28.065564,
+    "Longitude": -82.42987,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Campus Palms to LIB",
+    "ID": 644819,
+    "Number": 718,
+    "Latitude": 28.065555,
+    "Longitude": -82.432391,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Cordova to Library",
+    "ID": 95993,
+    "Number": 713,
+    "Latitude": 28.063346,
+    "Longitude": -82.434642,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "U Mall to Library",
+    "ID": 231365,
+    "Number": 708,
+    "Latitude": 28.059162,
+    "Longitude": -82.43472199999997,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "University Collection",
+    "ID": 96046,
+    "Number": 701,
+    "Latitude": 28.056951,
+    "Longitude": -82.42814299999998,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Botanical Gardens to Library",
+    "ID": 96056,
+    "Number": 241,
+    "Latitude": 28.057301,
+    "Longitude": -82.422934,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "University Diagnostic Institute ",
+    "ID": 96059,
+    "Number": 238,
+    "Latitude": 28.058037,
+    "Longitude": -82.42159800000002,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "University Technology Center",
+    "ID": 95336,
+    "Number": 206,
+    "Latitude": 28.058021,
+    "Longitude": -82.41781800000001,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Center for Transportation Research ",
+    "ID": 95902,
+    "Number": 203,
+    "Latitude": 28.058073,
+    "Longitude": -82.41612900000001,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Magnolia Apartments",
+    "ID": 95905,
+    "Number": 205,
+    "Latitude": 28.058139,
+    "Longitude": -82.41805999999997,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Magnolia Fields",
+    "ID": 96088,
+    "Number": 239,
+    "Latitude": 28.058125,
+    "Longitude": -82.42160899999999,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Botanical Gardens to Mall",
+    "ID": 96091,
+    "Number": 240,
+    "Latitude": 28.057834,
+    "Longitude": -82.42303300000003,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Fountainwood Apts.",
+    "ID": 96100,
+    "Number": 700,
+    "Latitude": 28.05701,
+    "Longitude": -82.428226,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "U Mall to MSC",
+    "ID": 231366,
+    "Number": 709,
+    "Latitude": 28.058092,
+    "Longitude": -82.43495300000001,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Cordova to MSC",
+    "ID": 96152,
+    "Number": 712,
+    "Latitude": 28.063339,
+    "Longitude": -82.43456000000003,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Campus Palms to MSC",
+    "ID": 644820,
+    "Number": 717,
+    "Latitude": 28.065505,
+    "Longitude": -82.43249600000001,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "UATC to MSC",
+    "ID": 96163,
+    "Number": 715,
+    "Latitude": 28.066776,
+    "Longitude": -82.42943300000002,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "USF Health Clinics",
+    "ID": 96171,
+    "Number": 320,
+    "Latitude": 28.065699,
+    "Longitude": -82.424782,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      }
+    ]
+  },
+  {
+    "Name": "Holly at USF Health Drive",
+    "ID": 96175,
+    "Number": 315,
+    "Latitude": 28.065985,
+    "Longitude": -82.42314799999997,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Moffitt Tower",
+    "ID": 96177,
+    "Number": 313,
+    "Latitude": 28.065974,
+    "Longitude": -82.42082299999998,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Moffit Research",
+    "ID": 96179,
+    "Number": 311,
+    "Latitude": 28.065997,
+    "Longitude": -82.41912000000002,
+    "Routes": [
+      {
+        "ID": 428,
+        "Name": "Route D",
+        "SortName": "D Route D",
+        "Letter": "D"
+      },
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Lot 35",
+    "ID": 95851,
+    "Number": 445,
+    "Latitude": 28.065637,
+    "Longitude": -82.407396,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      },
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Park and Ride Lot 18 at Par Course",
+    "ID": 95856,
+    "Number": 151,
+    "Latitude": 28.0656,
+    "Longitude": -82.402825,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Park and Ride Lot 18 at Softball Fields",
+    "ID": 95860,
+    "Number": 155,
+    "Latitude": 28.063545,
+    "Longitude": -82.40282000000002,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Park and Ride Lot 18 at Soccer Fields",
+    "ID": 95865,
+    "Number": 157,
+    "Latitude": 28.059886,
+    "Longitude": -82.40276799999998,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Lee Roy Selmon Athletics Center ",
+    "ID": 95867,
+    "Number": 161,
+    "Latitude": 28.059788,
+    "Longitude": -82.404537,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Sun Dome East",
+    "ID": 95873,
+    "Number": 165,
+    "Latitude": 28.057618,
+    "Longitude": -82.40546699999999,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Science Center",
+    "ID": 95908,
+    "Number": 209,
+    "Latitude": 28.060066,
+    "Longitude": -82.41760999999997,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "The Lakes",
+    "ID": 95911,
+    "Number": 213,
+    "Latitude": 28.061265,
+    "Longitude": -82.41951399999999,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Psychology Center",
+    "ID": 95920,
+    "Number": 221,
+    "Latitude": 28.063848,
+    "Longitude": -82.41889700000002,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "School of Music West",
+    "ID": 95925,
+    "Number": 225,
+    "Latitude": 28.064942,
+    "Longitude": -82.41889700000002,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Bull Runner Office",
+    "ID": 231768,
+    "Number": 325,
+    "Latitude": 28.066385,
+    "Longitude": -82.41764699999999,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Park and Ride Lot 43 to Marshall Center",
+    "ID": 95942,
+    "Number": 327,
+    "Latitude": 28.067794,
+    "Longitude": -82.41643099999999,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Lot 44",
+    "ID": 95945,
+    "Number": 329,
+    "Latitude": 28.067653,
+    "Longitude": -82.41485399999999,
+    "Routes": [
+      {
+        "ID": 427,
+        "Name": "Route E",
+        "SortName": "E Route E",
+        "Letter": "E"
+      }
+    ]
+  },
+  {
+    "Name": "Holly & 50th",
+    "ID": 295642,
+    "Number": 449,
+    "Latitude": 28.066302,
+    "Longitude": -82.402379,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 905",
+    "ID": 306085,
+    "Number": 905,
+    "Latitude": 28.063081,
+    "Longitude": -82.40194600000001,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 911",
+    "ID": 306086,
+    "Number": 911,
+    "Latitude": 28.0592,
+    "Longitude": -82.401903,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 913",
+    "ID": 1569583,
+    "Number": 913,
+    "Latitude": 28.057292,
+    "Longitude": -82.401907,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Museum of Science and Industry",
+    "ID": 306097,
+    "Number": 526,
+    "Latitude": 28.0527,
+    "Longitude": -82.40172799999999,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Liberty & 50th Southbound",
+    "ID": 295643,
+    "Number": 520,
+    "Latitude": 28.048197,
+    "Longitude": -82.40170999999998,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Serena at Woodmere Westbound",
+    "ID": 295644,
+    "Number": 518,
+    "Latitude": 28.043638,
+    "Longitude": -82.40377999999998,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Serena at Connechusett Westbound",
+    "ID": 295645,
+    "Number": 514,
+    "Latitude": 28.043629,
+    "Longitude": -82.40842600000002,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Driver Training Facility ",
+    "ID": 306087,
+    "Number": 510,
+    "Latitude": 28.04361,
+    "Longitude": -82.41375299999999,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "The Province",
+    "ID": 1569593,
+    "Number": 508,
+    "Latitude": 28.044221,
+    "Longitude": -82.41614099999998,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 504",
+    "ID": 306089,
+    "Number": 504,
+    "Latitude": 28.050517,
+    "Longitude": -82.41614500000003,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 502",
+    "ID": 306090,
+    "Number": 502,
+    "Latitude": 28.053572,
+    "Longitude": -82.41609699999998,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 501",
+    "ID": 306091,
+    "Number": 501,
+    "Latitude": 28.053438,
+    "Longitude": -82.41637100000003,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 503",
+    "ID": 306092,
+    "Number": 503,
+    "Latitude": 28.050864,
+    "Longitude": -82.41640100000001,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 505",
+    "ID": 1569584,
+    "Number": 505,
+    "Latitude": 28.044231,
+    "Longitude": -82.41641099999998,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Busch Gardens Employee Entrance",
+    "ID": 1569594,
+    "Number": 601,
+    "Latitude": 28.043435,
+    "Longitude": -82.42080699999997,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Adventure Island Employee Entrance",
+    "ID": 306094,
+    "Number": 511,
+    "Latitude": 28.043539,
+    "Longitude": -82.41358100000002,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Serena at Connechusett Eastbound ",
+    "ID": 295646,
+    "Number": 513,
+    "Latitude": 28.043543,
+    "Longitude": -82.40824900000001,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Serena at Woodmere Eastbound",
+    "ID": 295647,
+    "Number": 517,
+    "Latitude": 28.043543,
+    "Longitude": -82.40363000000002,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Liberty & 50th Northbound",
+    "ID": 295648,
+    "Number": 521,
+    "Latitude": 28.048176,
+    "Longitude": -82.401592,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Park Avenue Apartments",
+    "ID": 306098,
+    "Number": 527,
+    "Latitude": 28.052094,
+    "Longitude": -82.40158600000001,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 914",
+    "ID": 1569585,
+    "Number": 914,
+    "Latitude": 28.05715,
+    "Longitude": -82.40179499999999,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 912",
+    "ID": 306095,
+    "Number": 912,
+    "Latitude": 28.059214,
+    "Longitude": -82.40180599999997,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 906",
+    "ID": 306096,
+    "Number": 906,
+    "Latitude": 28.062864,
+    "Longitude": -82.40179499999999,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Stop 904",
+    "ID": 295649,
+    "Number": 904,
+    "Latitude": 28.066224,
+    "Longitude": -82.40182199999998,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Marshall Center to Laurel Garage",
+    "ID": 1570151,
+    "Number": 402,
+    "Latitude": 28.064435,
+    "Longitude": -82.41377399999999,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  },
+  {
+    "Name": "Laurel Parking Facility",
+    "ID": 1569595,
+    "Number": 353,
+    "Latitude": 28.067008,
+    "Longitude": -82.41892899999999,
+    "Routes": [
+      {
+        "ID": 883,
+        "Name": "Route F",
+        "SortName": "F Route F",
+        "Letter": "F"
+      }
+    ]
+  }
+]

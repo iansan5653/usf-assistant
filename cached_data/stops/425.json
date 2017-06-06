@@ -1,0 +1,213 @@
+[
+
+    {
+        "ID": 95554,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.06713,
+        "Longitude": -82.413168999999982,
+        "Name": "Andros",
+        "RtpiNumber": 414,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95557,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.067715,
+        "Longitude": -82.414653999999985,
+        "Name": "Park and Ride 43 East",
+        "RtpiNumber": 330,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95561,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.067885,
+        "Longitude": -82.416518,
+        "Name": "Park and Ride Lot 43 West",
+        "RtpiNumber": 328,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95569,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.066402,
+        "Longitude": -82.417693999999983,
+        "Name": "Laurel Garage ",
+        "RtpiNumber": 326,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95626,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.066063,
+        "Longitude": -82.419212000000016,
+        "Name": "Morsani Center",
+        "RtpiNumber": 312,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95629,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.066069,
+        "Longitude": -82.420827000000031,
+        "Name": "Holly at Magnolia Drive",
+        "RtpiNumber": 314,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 1569445,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.065136,
+        "Longitude": -82.423631,
+        "Name": "The WELL (Lot 34)",
+        "RtpiNumber": 317,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 1569460,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.06439,
+        "Longitude": -82.423772999999983,
+        "Name": "College of Nursing",
+        "RtpiNumber": 318,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95654,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.0668421466551,
+        "Longitude": -82.423937022686,
+        "Name": "Westside Conference Center",
+        "RtpiNumber": 340,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95660,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.0672330850422,
+        "Longitude": -82.424983084201813,
+        "Name": "College of Public Health",
+        "RtpiNumber": 342,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95666,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.0679876617572,
+        "Longitude": -82.425404191017208,
+        "Name": "Continuing Education",
+        "RtpiNumber": 344,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95674,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.0687876216732,
+        "Longitude": -82.423397898674011,
+        "Name": "Chiles Center",
+        "RtpiNumber": 346,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 1569446,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.0684248319783,
+        "Longitude": -82.4182798404945,
+        "Name": "School of Physical Therapy",
+        "RtpiNumber": 348,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 1569447,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.0675181039214,
+        "Longitude": -82.418725490570068,
+        "Name": "Child Development Center",
+        "RtpiNumber": 350,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 1569448,
+        "Image": "stop_sign_medium.gif",
+        "Latitude": 28.0669959534291,
+        "Longitude": -82.41900980472559,
+        "Name": "Morsani Advanced Healthcare",
+        "RtpiNumber": 352,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95687,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.06546,
+        "Longitude": -82.417920999999978,
+        "Name": "School of Music North",
+        "RtpiNumber": 305,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95691,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.064846,
+        "Longitude": -82.416357,
+        "Name": "Fine Arts Studio",
+        "RtpiNumber": 303,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95692,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.064859,
+        "Longitude": -82.414694,
+        "Name": "Theater",
+        "RtpiNumber": 301,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    },
+    {
+        "ID": 95548,
+        "Image": "stop_sign.gif",
+        "Latitude": 28.064358,
+        "Longitude": -82.413793,
+        "Name": "Marshall Student Center",
+        "RtpiNumber": 401,
+        "ShowLabel": false,
+        "ShowStopRtpiNumberLabel": false,
+        "ShowVehicleName": false
+    }
+
+]

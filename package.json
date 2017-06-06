@@ -24,6 +24,9 @@
   "homepage": "https://github.com/iansan5653/usf-assistant#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "file-system": "^2.2.2",
+    "request": "^2.81.0",
+    "tosource": "^1.0.0"
   }
 }
