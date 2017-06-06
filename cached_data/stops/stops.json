@@ -6,12 +6,7 @@
     "Latitude": 28.063806,
     "Longitude": -82.41898800000001,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -21,12 +16,7 @@
     "Latitude": 28.062265,
     "Longitude": -82.41951,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -36,12 +26,7 @@
     "Latitude": 28.059957,
     "Longitude": -82.41777100000002,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -51,18 +36,8 @@
     "Latitude": 28.057783,
     "Longitude": -82.415798,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      423,
+      428
     ]
   },
   {
@@ -72,36 +47,11 @@
     "Latitude": 28.059207,
     "Longitude": -82.41301199999998,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      },
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      423,
+      426,
+      428,
+      427,
+      883
     ]
   },
   {
@@ -111,36 +61,11 @@
     "Latitude": 28.059175,
     "Longitude": -82.41342099999997,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      },
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      423,
+      426,
+      428,
+      427,
+      883
     ]
   },
   {
@@ -150,12 +75,7 @@
     "Latitude": 28.05652,
     "Longitude": -82.41013199999998,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -165,12 +85,7 @@
     "Latitude": 28.056553,
     "Longitude": -82.408635,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -180,12 +95,7 @@
     "Latitude": 28.057674,
     "Longitude": -82.40535599999998,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -195,12 +105,7 @@
     "Latitude": 28.059784,
     "Longitude": -82.40477299999998,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -210,12 +115,7 @@
     "Latitude": 28.06013,
     "Longitude": -82.40269699999999,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -225,12 +125,7 @@
     "Latitude": 28.063067,
     "Longitude": -82.40269899999998,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -240,12 +135,7 @@
     "Latitude": 28.065648,
     "Longitude": -82.402693,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -255,18 +145,8 @@
     "Latitude": 28.065764,
     "Longitude": -82.40739000000002,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      423,
+      883
     ]
   },
   {
@@ -276,18 +156,8 @@
     "Latitude": 28.067751,
     "Longitude": -82.407601,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      423,
+      427
     ]
   },
   {
@@ -297,18 +167,8 @@
     "Latitude": 28.066647,
     "Longitude": -82.40803,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      423,
+      427
     ]
   },
   {
@@ -318,24 +178,9 @@
     "Latitude": 28.065759,
     "Longitude": -82.40984700000001,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      423,
+      426,
+      883
     ]
   },
   {
@@ -345,24 +190,9 @@
     "Latitude": 28.065787,
     "Longitude": -82.41204099999999,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      423,
+      426,
+      883
     ]
   },
   {
@@ -372,42 +202,12 @@
     "Latitude": 28.064358,
     "Longitude": -82.413793,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      },
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      },
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      423,
+      425,
+      426,
+      428,
+      427,
+      883
     ]
   },
   {
@@ -417,24 +217,9 @@
     "Latitude": 28.06713,
     "Longitude": -82.41316899999998,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      },
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      423,
+      425,
+      426
     ]
   },
   {
@@ -444,18 +229,8 @@
     "Latitude": 28.067715,
     "Longitude": -82.41465399999998,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      }
+      423,
+      425
     ]
   },
   {
@@ -465,18 +240,8 @@
     "Latitude": 28.067885,
     "Longitude": -82.416518,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      }
+      423,
+      425
     ]
   },
   {
@@ -486,24 +251,9 @@
     "Latitude": 28.066402,
     "Longitude": -82.41769399999998,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      },
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      423,
+      425,
+      883
     ]
   },
   {
@@ -513,12 +263,7 @@
     "Latitude": 28.064852,
     "Longitude": -82.419015,
     "Routes": [
-      {
-        "ID": 423,
-        "Name": "Route A",
-        "SortName": "A Route A",
-        "Letter": "A"
-      }
+      423
     ]
   },
   {
@@ -528,24 +273,9 @@
     "Latitude": 28.066063,
     "Longitude": -82.41921200000002,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      },
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      425,
+      428,
+      427
     ]
   },
   {
@@ -555,24 +285,9 @@
     "Latitude": 28.066069,
     "Longitude": -82.42082700000003,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      },
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      425,
+      428,
+      427
     ]
   },
   {
@@ -582,18 +297,8 @@
     "Latitude": 28.065136,
     "Longitude": -82.423631,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      425,
+      427
     ]
   },
   {
@@ -603,18 +308,8 @@
     "Latitude": 28.06439,
     "Longitude": -82.42377299999998,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      425,
+      427
     ]
   },
   {
@@ -624,12 +319,7 @@
     "Latitude": 28.0668421466551,
     "Longitude": -82.423937022686,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      }
+      425
     ]
   },
   {
@@ -639,12 +329,7 @@
     "Latitude": 28.0672330850422,
     "Longitude": -82.42498308420181,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      }
+      425
     ]
   },
   {
@@ -654,12 +339,7 @@
     "Latitude": 28.0679876617572,
     "Longitude": -82.42540419101721,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      }
+      425
     ]
   },
   {
@@ -669,12 +349,7 @@
     "Latitude": 28.0687876216732,
     "Longitude": -82.42339789867401,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      }
+      425
     ]
   },
   {
@@ -684,12 +359,7 @@
     "Latitude": 28.0684248319783,
     "Longitude": -82.4182798404945,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      }
+      425
     ]
   },
   {
@@ -699,12 +369,7 @@
     "Latitude": 28.0675181039214,
     "Longitude": -82.41872549057007,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      }
+      425
     ]
   },
   {
@@ -714,12 +379,7 @@
     "Latitude": 28.0669959534291,
     "Longitude": -82.41900980472559,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      }
+      425
     ]
   },
   {
@@ -729,24 +389,9 @@
     "Latitude": 28.06546,
     "Longitude": -82.41792099999998,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      },
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      425,
+      428,
+      883
     ]
   },
   {
@@ -756,24 +401,9 @@
     "Latitude": 28.064846,
     "Longitude": -82.416357,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      },
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      425,
+      428,
+      883
     ]
   },
   {
@@ -783,24 +413,9 @@
     "Latitude": 28.064859,
     "Longitude": -82.414694,
     "Routes": [
-      {
-        "ID": 425,
-        "Name": "Route B",
-        "SortName": "B Route B",
-        "Letter": "B"
-      },
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      425,
+      428,
+      883
     ]
   },
   {
@@ -810,24 +425,9 @@
     "Latitude": 28.065656,
     "Longitude": -82.411269,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      426,
+      427,
+      883
     ]
   },
   {
@@ -837,24 +437,9 @@
     "Latitude": 28.065666,
     "Longitude": -82.40948300000002,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      426,
+      427,
+      883
     ]
   },
   {
@@ -864,12 +449,7 @@
     "Latitude": 28.065016,
     "Longitude": -82.408163,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -879,12 +459,7 @@
     "Latitude": 28.061319,
     "Longitude": -82.40877599999999,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -894,12 +469,7 @@
     "Latitude": 28.060285,
     "Longitude": -82.40879899999999,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -909,12 +479,7 @@
     "Latitude": 28.058653,
     "Longitude": -82.408796,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -924,18 +489,8 @@
     "Latitude": 28.0573,
     "Longitude": -82.40964200000002,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      426,
+      427
     ]
   },
   {
@@ -945,12 +500,7 @@
     "Latitude": 28.058807,
     "Longitude": -82.40864699999997,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -960,12 +510,7 @@
     "Latitude": 28.060273,
     "Longitude": -82.40864799999997,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -975,12 +520,7 @@
     "Latitude": 28.061179,
     "Longitude": -82.40864799999997,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -990,12 +530,7 @@
     "Latitude": 28.064776,
     "Longitude": -82.40805399999999,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -1005,12 +540,7 @@
     "Latitude": 28.0723,
     "Longitude": -82.40990999999997,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -1020,12 +550,7 @@
     "Latitude": 28.075023,
     "Longitude": -82.40995299999997,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -1035,12 +560,7 @@
     "Latitude": 28.077039,
     "Longitude": -82.40999399999998,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -1050,12 +570,7 @@
     "Latitude": 28.080382,
     "Longitude": -82.41137100000003,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -1065,12 +580,7 @@
     "Latitude": 28.080391,
     "Longitude": -82.41242799999998,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -1080,12 +590,7 @@
     "Latitude": 28.078266,
     "Longitude": -82.41414700000001,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -1095,12 +600,7 @@
     "Latitude": 28.076153,
     "Longitude": -82.41405399999996,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -1110,12 +610,7 @@
     "Latitude": 28.072141,
     "Longitude": -82.41403700000001,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -1125,12 +620,7 @@
     "Latitude": 28.067995,
     "Longitude": -82.41326900000001,
     "Routes": [
-      {
-        "ID": 426,
-        "Name": "Route C",
-        "SortName": "C Route C",
-        "Letter": "C"
-      }
+      426
     ]
   },
   {
@@ -1140,18 +630,8 @@
     "Latitude": 28.064944,
     "Longitude": -82.41420099999999,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      428,
+      883
     ]
   },
   {
@@ -1161,18 +641,8 @@
     "Latitude": 28.064939,
     "Longitude": -82.41655800000001,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      428,
+      883
     ]
   },
   {
@@ -1182,18 +652,8 @@
     "Latitude": 28.06549,
     "Longitude": -82.41781800000001,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      428,
+      883
     ]
   },
   {
@@ -1203,12 +663,7 @@
     "Latitude": 28.066078,
     "Longitude": -82.423497,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1218,12 +673,7 @@
     "Latitude": 28.065978,
     "Longitude": -82.42453,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1233,12 +683,7 @@
     "Latitude": 28.065564,
     "Longitude": -82.42987,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1248,12 +693,7 @@
     "Latitude": 28.065555,
     "Longitude": -82.432391,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1263,12 +703,7 @@
     "Latitude": 28.063346,
     "Longitude": -82.434642,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1278,12 +713,7 @@
     "Latitude": 28.059162,
     "Longitude": -82.43472199999997,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1293,12 +723,7 @@
     "Latitude": 28.056951,
     "Longitude": -82.42814299999998,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1308,12 +733,7 @@
     "Latitude": 28.057301,
     "Longitude": -82.422934,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1323,12 +743,7 @@
     "Latitude": 28.058037,
     "Longitude": -82.42159800000002,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1338,12 +753,7 @@
     "Latitude": 28.058021,
     "Longitude": -82.41781800000001,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1353,18 +763,8 @@
     "Latitude": 28.058073,
     "Longitude": -82.41612900000001,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      428,
+      427
     ]
   },
   {
@@ -1374,12 +774,7 @@
     "Latitude": 28.058139,
     "Longitude": -82.41805999999997,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1389,12 +784,7 @@
     "Latitude": 28.058125,
     "Longitude": -82.42160899999999,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1404,12 +794,7 @@
     "Latitude": 28.057834,
     "Longitude": -82.42303300000003,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1419,12 +804,7 @@
     "Latitude": 28.05701,
     "Longitude": -82.428226,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1434,12 +814,7 @@
     "Latitude": 28.058092,
     "Longitude": -82.43495300000001,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1449,12 +824,7 @@
     "Latitude": 28.063339,
     "Longitude": -82.43456000000003,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1464,12 +834,7 @@
     "Latitude": 28.065505,
     "Longitude": -82.43249600000001,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1479,12 +844,7 @@
     "Latitude": 28.066776,
     "Longitude": -82.42943300000002,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1494,12 +854,7 @@
     "Latitude": 28.065699,
     "Longitude": -82.424782,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      }
+      428
     ]
   },
   {
@@ -1509,18 +864,8 @@
     "Latitude": 28.065985,
     "Longitude": -82.42314799999997,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      428,
+      427
     ]
   },
   {
@@ -1530,18 +875,8 @@
     "Latitude": 28.065974,
     "Longitude": -82.42082299999998,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      428,
+      427
     ]
   },
   {
@@ -1551,18 +886,8 @@
     "Latitude": 28.065997,
     "Longitude": -82.41912000000002,
     "Routes": [
-      {
-        "ID": 428,
-        "Name": "Route D",
-        "SortName": "D Route D",
-        "Letter": "D"
-      },
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      428,
+      427
     ]
   },
   {
@@ -1572,18 +897,8 @@
     "Latitude": 28.065637,
     "Longitude": -82.407396,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      },
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      427,
+      883
     ]
   },
   {
@@ -1593,12 +908,7 @@
     "Latitude": 28.0656,
     "Longitude": -82.402825,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1608,12 +918,7 @@
     "Latitude": 28.063545,
     "Longitude": -82.40282000000002,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1623,12 +928,7 @@
     "Latitude": 28.059886,
     "Longitude": -82.40276799999998,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1638,12 +938,7 @@
     "Latitude": 28.059788,
     "Longitude": -82.404537,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1653,12 +948,7 @@
     "Latitude": 28.057618,
     "Longitude": -82.40546699999999,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1668,12 +958,7 @@
     "Latitude": 28.060066,
     "Longitude": -82.41760999999997,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1683,12 +968,7 @@
     "Latitude": 28.061265,
     "Longitude": -82.41951399999999,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1698,12 +978,7 @@
     "Latitude": 28.063848,
     "Longitude": -82.41889700000002,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1713,12 +988,7 @@
     "Latitude": 28.064942,
     "Longitude": -82.41889700000002,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1728,12 +998,7 @@
     "Latitude": 28.066385,
     "Longitude": -82.41764699999999,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1743,12 +1008,7 @@
     "Latitude": 28.067794,
     "Longitude": -82.41643099999999,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1758,12 +1018,7 @@
     "Latitude": 28.067653,
     "Longitude": -82.41485399999999,
     "Routes": [
-      {
-        "ID": 427,
-        "Name": "Route E",
-        "SortName": "E Route E",
-        "Letter": "E"
-      }
+      427
     ]
   },
   {
@@ -1773,12 +1028,7 @@
     "Latitude": 28.066302,
     "Longitude": -82.402379,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1788,12 +1038,7 @@
     "Latitude": 28.063081,
     "Longitude": -82.40194600000001,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1803,12 +1048,7 @@
     "Latitude": 28.0592,
     "Longitude": -82.401903,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1818,12 +1058,7 @@
     "Latitude": 28.057292,
     "Longitude": -82.401907,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1833,12 +1068,7 @@
     "Latitude": 28.0527,
     "Longitude": -82.40172799999999,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1848,12 +1078,7 @@
     "Latitude": 28.048197,
     "Longitude": -82.40170999999998,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1863,12 +1088,7 @@
     "Latitude": 28.043638,
     "Longitude": -82.40377999999998,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1878,12 +1098,7 @@
     "Latitude": 28.043629,
     "Longitude": -82.40842600000002,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1893,12 +1108,7 @@
     "Latitude": 28.04361,
     "Longitude": -82.41375299999999,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1908,12 +1118,7 @@
     "Latitude": 28.044221,
     "Longitude": -82.41614099999998,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1923,12 +1128,7 @@
     "Latitude": 28.050517,
     "Longitude": -82.41614500000003,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1938,12 +1138,7 @@
     "Latitude": 28.053572,
     "Longitude": -82.41609699999998,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1953,12 +1148,7 @@
     "Latitude": 28.053438,
     "Longitude": -82.41637100000003,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1968,12 +1158,7 @@
     "Latitude": 28.050864,
     "Longitude": -82.41640100000001,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1983,12 +1168,7 @@
     "Latitude": 28.044231,
     "Longitude": -82.41641099999998,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -1998,12 +1178,7 @@
     "Latitude": 28.043435,
     "Longitude": -82.42080699999997,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2013,12 +1188,7 @@
     "Latitude": 28.043539,
     "Longitude": -82.41358100000002,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2028,12 +1198,7 @@
     "Latitude": 28.043543,
     "Longitude": -82.40824900000001,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2043,12 +1208,7 @@
     "Latitude": 28.043543,
     "Longitude": -82.40363000000002,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2058,12 +1218,7 @@
     "Latitude": 28.048176,
     "Longitude": -82.401592,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2073,12 +1228,7 @@
     "Latitude": 28.052094,
     "Longitude": -82.40158600000001,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2088,12 +1238,7 @@
     "Latitude": 28.05715,
     "Longitude": -82.40179499999999,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2103,12 +1248,7 @@
     "Latitude": 28.059214,
     "Longitude": -82.40180599999997,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2118,12 +1258,7 @@
     "Latitude": 28.062864,
     "Longitude": -82.40179499999999,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2133,12 +1268,7 @@
     "Latitude": 28.066224,
     "Longitude": -82.40182199999998,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2148,12 +1278,7 @@
     "Latitude": 28.064435,
     "Longitude": -82.41377399999999,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   },
   {
@@ -2163,12 +1288,7 @@
     "Latitude": 28.067008,
     "Longitude": -82.41892899999999,
     "Routes": [
-      {
-        "ID": 883,
-        "Name": "Route F",
-        "SortName": "F Route F",
-        "Letter": "F"
-      }
+      883
     ]
   }
 ]
