@@ -791,8 +791,8 @@
     "Name": "Botanical Gardens to Mall",
     "ID": 96091,
     "Number": 240,
-    "Latitude": 28.057834,
-    "Longitude": -82.42303300000003,
+    "Latitude": 28.05776479772889,
+    "Longitude": -82.42302897668651,
     "Routes": [
       428
     ]
@@ -1215,8 +1215,8 @@
     "Name": "Liberty & 50th Northbound",
     "ID": 295648,
     "Number": 521,
-    "Latitude": 28.048176,
-    "Longitude": -82.401592,
+    "Latitude": 28.04790377276341,
+    "Longitude": -82.40159065889554,
     "Routes": [
       883
     ]
