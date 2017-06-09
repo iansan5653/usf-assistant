@@ -282,49 +282,60 @@ app.get('/update-entity-route', function(req, res) {
 });
 
 app.get('/update-stops', function(req, res) {
-	var stops_new = [];
-
+	var stops_raw = [];
 	var routes = require('./cached_data/routes.json');
 
-  routes.forEach(function(route) {
-
-	  var stops = require('./cached_data/stops/' + route.ID + '.json');
-
-	  stops.forEach(function(stop) {
-
-	  	var stop_duplicate_index = stops_new.findIndex(function(stop_duplicate) {
-	  		// If the stop has multiple routes, it will appear multiple times
-			  return stop.ID == stop_duplicate.ID;
+	function getRouteFile(num = 0) {
+		if(num < routes.length) {
+			request('https://usfbullrunner.com/Route/' + routes[num].ID + '/Direction/0/Stops', function (error, response, body) {
+				// TODO add error handling
+				var route_object = {
+					'ID': routes[num].ID,
+					'Data': JSON.parse(body)
+				}
+				stops_raw.push(route_object);
+				console.log(num);
+				num++;
+				getRouteFile(num); // note: recursive
 			});
+		} else {
+			var stops_new = [];
+			stops_raw.forEach(function(stops) {
+				stops.Data.forEach(function(stop) {
+			  	var stop_duplicate_index = stops_new.findIndex(function(stop_duplicate) {
+			  		// If the stop has multiple routes, it will appear multiple times
+					  return stop.ID == stop_duplicate.ID;
+					});
 
-			if(stop_duplicate_index == -1) {
-				// API.AI Entity entries don't allow brackets, so have to remove them for the EntityEntryName
-		  	var stop_object = {
-		  		'Name': stop.Name,
-		  		'ID': stop.ID,
-		  		'Number': stop.RtpiNumber,
-	  			'Latitude': stop.Latitude,
-	  			'Longitude': stop.Longitude,
-	  			'Routes': [route.ID]
-	  		}
-	  		stops_new.push(stop_object);
-
-	  	} else {
-				stops_new[stop_duplicate_index].Routes.push(route.ID);
-	  	}
-	  });
-	});
-
-  fs.writeFile('./cached_data/stops/stops.json', JSON.stringify(stops_new, null, 2), function (err) {
-	  if (err) return console.log('File update failed:' + err);
-	});
-
-	res.end('File updated.');
+					if(stop_duplicate_index == -1) {
+				  	var stop_object = {
+				  		'Name': stop.Name,
+				  		'ID': stop.ID,
+				  		'Number': stop.RtpiNumber,
+			  			'Latitude': stop.Latitude,
+			  			'Longitude': stop.Longitude,
+			  			'Routes': [stops.ID]
+			  		}
+			  		stops_new.push(stop_object);
+			  	} else {
+						stops_new[stop_duplicate_index].Routes.push(stops.ID);
+			  	}
+			  });
+			});
+			fs.writeFile('./cached_data/stops/stops.json', JSON.stringify(stops_new, null, 2), function (err) {
+			  if (err) return console.log('File update failed:' + err);
+			});
+			console.log('File updated.')
+			res.end('File updated.');
+		}
+	}
+	getRouteFile();
 });
 
 app.get('/update-routes', function(req, res) {
 	var routes_new = [];
   request('https://usfbullrunner.com/Region/0/Routes', function(error, response, body) {
+  	//TODO add error handling
   	body_json = JSON.parse(body);
 
   	body_json.forEach(function(route) {
