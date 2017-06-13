@@ -1,4 +1,3 @@
-// grab the packages we need
 var express = require('express');
 var request = require('request');
 var fs = require('file-system');
@@ -6,6 +5,7 @@ var fs = require('file-system');
 var app = express();
 var port = process.env.PORT || 8080;
 
+var cache = require('./cache/index');
 
 Array.prototype.pushIfNew = function(item) {
 	duplicateIndex = this.findIndex(function(element) {
@@ -29,7 +29,9 @@ app.post('/', function(req, res) {
 	}).ID;
 
 	if(stopID != undefined) {
-		request('https://usfbullrunner.com/Stop/' + stopID + '/Arrivals?customerID=3', function (error, response, body) {
+		request('https://usfbullrunner.com/Stop/' + stopID + '/Arrivals?customerID=3', 
+			function (error, response, body) {
+
 			bodyJSON = JSON.parse(body);
 			if (!error && response.statusCode == 200) {
 				if (bodyJSON.length != 0) {
@@ -120,7 +122,8 @@ app.get('/update-entity-stop', function(req, res) {
 								stops.forEach(function(stop) {
 									var synonyms = [];
 									var stopNameValid = stop.Name.replace(/\(|\)|\[|\]/g, '');
-									// Remove parentheses (brackets are not supported in the entity synonym entries)
+									// Remove parentheses 
+									// (brackets are not supported in the entity synonym entries)
 									synonyms.pushIfNew(stopNameValid);
 									// Remove surrounding whitespace
 									synonyms.pushIfNew(stopNameValid.trim());
@@ -223,7 +226,8 @@ app.get('/update-entity-route', function(req, res) {
 								routes.forEach(function(route) {
 									var synonyms = [];
 									var routeNameValid = route.Name.replace(/\(|\)|\[|\]/g, '');
-									// Remove parentheses (brackets are not supported in the entity synonym entries)
+									// Remove parentheses 
+									// (brackets are not supported in the entity synonym entries)
 									synonyms.pushIfNew(routeNameValid);
 									// Remove surrounding whitespace
 									synonyms.pushIfNew(routeNameValid.trim());
@@ -287,7 +291,8 @@ app.get('/update-stops', function(req, res) {
 
 	function getRouteFile(num = 0) {
 		if(num < routes.length) {
-			request('https://usfbullrunner.com/Route/' + routes[num].ID + '/Direction/0/Stops', function (error, response, body) {
+			request('https://usfbullrunner.com/Route/' + routes[num].ID + '/Direction/0/Stops',
+			function (error, response, body) {
 				// TODO add error handling
 				var routeObject = {
 					'ID': routes[num].ID,
@@ -322,7 +327,8 @@ app.get('/update-stops', function(req, res) {
 					}
 				});
 			});
-			fs.writeFile('./cached_data/stops/stops.json', JSON.stringify(stopsNew, null, 2), function (err) {
+			fs.writeFile('./cached_data/stops/stops.json', 
+			JSON.stringify(stopsNew, null, 2), function (err) {
 				if (err) return console.log('File update failed:' + err);
 			});
 			console.log('File updated.')
@@ -334,7 +340,8 @@ app.get('/update-stops', function(req, res) {
 
 app.get('/update-routes', function(req, res) {
 	var routesNew = [];
-	request('https://usfbullrunner.com/Region/0/Routes', function(error, response, body) {
+	request('https://usfbullrunner.com/Region/0/Routes', 
+	function(error, response, body) {
 		//TODO add error handling
 		bodyJSON = JSON.parse(body);
 
@@ -347,11 +354,24 @@ app.get('/update-routes', function(req, res) {
 			};
 			routesNew.push(routeObject);
 		});
-		fs.writeFile('./cached_data/routes.json', JSON.stringify(routesNew, null, 2), function (err) {
+		fs.writeFile('./cached_data/routes.json',
+		JSON.stringify(routesNew, null, 2), function (err) {
 			if (err) return console.log('File update failed: ' + err);
 		});
 		res.end('File updated.');
 	});
+});
+
+app.get('/update-cache', function(req, res) {
+	var updateType = req.query.type;
+
+	if(updateType == 'routes') {
+		cache.update.routes();
+		res.end('File probably updated.'); //TODO
+	} else if(updateType == 'stops') {
+		cache.update.stops();
+		res.end('File probably updated.'); //TODO
+	}
 });
 
 // start the server
