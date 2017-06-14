@@ -1,3 +1,5 @@
+// jshint esversion:6
+
 var request = require('request');
 var fs = require('file-system');
 
@@ -13,11 +15,11 @@ module.exports.data = {
 module.exports.update.routes = function() {
 	var routesNew = [];
 	request('https://usfbullrunner.com/Region/0/Routes', 
-	function(error, response, body) {
+	(error, response, body) => {
 		//TODO add error handling
 		bodyJSON = JSON.parse(body);
 
-		bodyJSON.forEach(function(route) {
+		bodyJSON.forEach(route => {
 			var routeObject = {
 				'ID': route.ID,
 				'Name': route.Name,
@@ -27,7 +29,7 @@ module.exports.update.routes = function() {
 			routesNew.push(routeObject);
 		});
 		fs.writeFile('./cache/routes.json',
-		JSON.stringify(routesNew, null, 2), function (err) {
+		JSON.stringify(routesNew, null, 2), err => {
 			if (err) return console.log('File update failed: ' + err);
 		});
 		routes = module.exports.data.routes = routesNew;
@@ -40,7 +42,7 @@ module.exports.update.stops = function() {
 	function getRouteFile(num = 0) {
 		if(num < routes.length) {
 			request('https://usfbullrunner.com/Route/' + routes[num].ID + '/Direction/0/Stops',
-			function (error, response, body) {
+			(error, response, body) => {
 				// TODO add error handling
 				var routeObject = {
 					'ID': routes[num].ID,
@@ -54,12 +56,9 @@ module.exports.update.stops = function() {
 			});
 		} else {
 			var stopsNew = [];
-			stopsRaw.forEach(function(stops) {
-				stops.Data.forEach(function(stop) {
-					var stopDuplicateIndex = stopsNew.findIndex(function(stopDuplicate) {
-						// If the stop has multiple routes, it will appear multiple times
-						return stop.ID == stopDuplicate.ID;
-					});
+			stopsRaw.forEach(stops => {
+				stops.Data.forEach(stops => {
+					var stopDuplicateIndex = stopsNew.findIndex(stopDuplicate => stop.ID == stopDuplicate.ID);
 
 					if(stopDuplicateIndex == -1) {
 						var stopObject = {
@@ -77,7 +76,7 @@ module.exports.update.stops = function() {
 				});
 			});
 			fs.writeFile('./cache/stops.json', 
-			JSON.stringify(stopsNew, null, 2), function (err) {
+			JSON.stringify(stopsNew, null, 2), err => {
 				if (err) return console.log('File update failed:' + err);
 			});
 			stops = module.exports.data.routes = stopsNew;

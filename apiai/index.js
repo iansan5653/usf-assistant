@@ -1,5 +1,6 @@
-var request = require('request');
+// jshint esversion:6
 
+var request = require('request');
 
 module.exports.update = {};
 
@@ -12,14 +13,12 @@ module.exports.update.routes = function(cachedData, key) {
 			headers: {
 				'authorization': 'Bearer ' + key
 			}
-		}, function (error0, response0, body0) {
+		}, (error0, response0, body0) => {
 			if (!error0 && response0.statusCode == 200) {
 
 				bodyJSON = JSON.parse(body0);
 				entryNames = [];
-				bodyJSON.entries.forEach(function(entry) {
-					entryNames.push(entry.value);
-				});
+				bodyJSON.entries.forEach(entry => entryNames.push(entry.value));
 
 				var entryNamesString = '["' + entryNames.join('","') + '"]';
 				console.log(entryNamesString);
@@ -33,14 +32,14 @@ module.exports.update.routes = function(cachedData, key) {
 						},
 						body: entryNamesString
 					}, 
-					function (error1, response1, body1) {
+					(error1, response1, body1) => {
 						if (!error1 && response1.statusCode == 200) {
 							console.log("Deleted entries succesfully.");
 
 							var newEntries = [];
 							var routes = cachedData.routes;
 
-							routes.forEach(function(route) {
+							routes.forEach(route => {
 								var synonyms = [];
 								var routeNameValid = route.Name.replace(/\(|\)|\[|\]/g, '');
 								// Remove parentheses 
@@ -76,7 +75,7 @@ module.exports.update.routes = function(cachedData, key) {
 									},
 									body: JSON.stringify(newEntries)
 								},
-								function(error2, response2, body2) {
+								(error2, response2, body2) => {
 									if (!error2 && response2.statusCode == 200) {
 										console.log('Added succesfully.');
 									} else {
@@ -103,14 +102,12 @@ module.exports.update.stops = function(cachedData, key) {
 				headers: {
 					'authorization': 'Bearer ' + key
 				}
-			}, function (error0, response0, body0) {
+			}, (error0, response0, body0) => {
 				if (!error0 && response0.statusCode == 200) {
 
 					bodyJSON = JSON.parse(body0);
 					entryNames = [];
-					bodyJSON.entries.forEach(function(entry) {
-						entryNames.push(entry.value);
-					});
+					bodyJSON.entries.forEach(entry => entryNames.push(entry.value));
 
 					var entryNamesString = '["' + entryNames.join('","') + '"]';
 					console.log(entryNamesString);
@@ -124,14 +121,14 @@ module.exports.update.stops = function(cachedData, key) {
 							},
 							body: entryNamesString
 						}, 
-						function (error1, response1, body1) {
+						(error1, response1, body1) => {
 							if (!error1 && response1.statusCode == 200) {
 								console.log("Deleted succesfully.");
 
 								var newEntries = [];
 								var stops = cachedData.stops;
 
-								stops.forEach(function(stop) {
+								stops.forEach(stop => {
 									var synonyms = [];
 									var stopNameValid = stop.Name.replace(/\(|\)|\[|\]/g, '');
 									// Remove parentheses 
@@ -169,7 +166,7 @@ module.exports.update.stops = function(cachedData, key) {
 										},
 										body: JSON.stringify(newEntries)
 									},
-									function(error2, response2, body2) {
+									(error2, response2, body2) => {
 										if (!error2 && response2.statusCode == 200) {
 											console.log('Added succesfully.');
 										} else {
@@ -189,4 +186,4 @@ module.exports.update.stops = function(cachedData, key) {
 				}
 			}
 		);
-}
+};
