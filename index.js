@@ -13,7 +13,7 @@ Array.prototype.pushIfNew = function(item) {
 	});
 	if(duplicateIndex == -1) {
 		this.push(item);
-	};
+	}
 };
 
 var bodyParser = require('body-parser');
@@ -28,13 +28,13 @@ app.post('/', function(req, res) {
 		return stop.Name = stopName;
 	}).ID;
 
-	if(stopID != undefined) {
+	if(stopID !== undefined) {
 		request('https://usfbullrunner.com/Stop/' + stopID + '/Arrivals?customerID=3', 
 			function (error, response, body) {
 
 			bodyJSON = JSON.parse(body);
 			if (!error && response.statusCode == 200) {
-				if (bodyJSON.length != 0) {
+				if (bodyJSON.length !== 0) {
 
 					response = {
 						"speech": "The next bus will arrive #soon.",
@@ -42,7 +42,7 @@ app.post('/', function(req, res) {
 						"data": {},
 						"contextOut": [],
 						"source": "USF Bull Runner"
-					}
+					};
 					res.json(response);
 
 				} else {
@@ -53,7 +53,7 @@ app.post('/', function(req, res) {
 						"data": {},
 						"contextOut": [],
 						"source": "USF Bull Runner"
-					}
+					};
 					res.json(response);
 				}
 			} else {
@@ -64,7 +64,7 @@ app.post('/', function(req, res) {
 					"data": {},
 					"contextOut": [],
 					"source": "USF Bull Runner"
-				}
+				};
 				res.json(response);
 			}
 		});
@@ -75,7 +75,7 @@ app.post('/', function(req, res) {
 			"data": {},
 			"contextOut": [],
 			"source": "USF Bull Runner"
-		}
+		};
 		res.json(response);
 	}
 });
@@ -116,7 +116,7 @@ app.get('/update-entity-stop', function(req, res) {
 							if (!error1 && response1.statusCode == 200) {
 								console.log("Deleted succesfully.");
 
-								var newEntries = []
+								var newEntries = [];
 								var stops = require('./cached_data/stops/stops.json');
 
 								stops.forEach(function(stop) {
@@ -166,21 +166,21 @@ app.get('/update-entity-stop', function(req, res) {
 											res.end("There was an error adding entities: " + response2.statusCode);
 										}
 									}
-								)
+								);
 
 							} else {
 								console.log("There was an error deleting entities: " + response1.statusCode);
 								res.end("There was an error deleting entities: " + response1.statusCode);
 							}
 						}
-					)
+					);
 
 				} else {
-					console.log("There was an error retrieving entities: " + response0.statusCode)
+					console.log("There was an error retrieving entities: " + response0.statusCode);
 					res.end("There was an error retrieving entities: " + response0.statusCode);
 				}
 			}
-		)
+		);
 });
 
 app.get('/update-entity-route', function(req, res) {
@@ -220,7 +220,7 @@ app.get('/update-entity-route', function(req, res) {
 							if (!error1 && response1.statusCode == 200) {
 								console.log("Deleted entries succesfully.");
 
-								var newEntries = []
+								var newEntries = [];
 								var routes = require('./cached_data/routes.json');
 
 								routes.forEach(function(route) {
@@ -268,24 +268,24 @@ app.get('/update-entity-route', function(req, res) {
 											res.end("There was an error adding entities: " + response2.statusCode);
 										}
 									}
-								)
+								);
 
 							} else {
 								console.log("There was an error deleting entities: " + response1.statusCode);
 								res.end("There was an error deleting entities: " + response1.statusCode);
 							}
 						}
-					)
+					);
 
 				} else {
-					console.log("There was an error retrieving entities: " + response0.statusCode)
+					console.log("There was an error retrieving entities: " + response0.statusCode);
 					res.end("There was an error retrieving entities: " + response0.statusCode);
 				}
 			}
-		)
+		);
 });
 
-app.get('/update-stops', function(req, res) {
+/*app.get('/update-stops', function(req, res) {
 	var stopsRaw = [];
 	var routes = require('./cached_data/routes.json');
 
@@ -360,7 +360,7 @@ app.get('/update-routes', function(req, res) {
 		});
 		res.end('File updated.');
 	});
-});
+});*/
 
 app.get('/update-cache', function(req, res) {
 	var updateType = req.query.type;
@@ -375,10 +375,10 @@ app.get('/update-cache', function(req, res) {
 });
 
 // start the server
-app.listen(port, (err) => {	
+app.listen(port, function(err) {	
 	if (err) {
-		return console.log('something bad happened', err)
+		return console.log('something bad happened', err);
 	}
 
 	console.log('Server started! At http://localhost:' + port);
-})
+});
