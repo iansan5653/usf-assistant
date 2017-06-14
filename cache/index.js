@@ -45,7 +45,7 @@ module.exports.update.stops = function() {
 				var routeObject = {
 					'ID': routes[num].ID,
 					'Data': JSON.parse(body)
-				}
+				};
 				stopsRaw.push(routeObject);
 				console.log(num);
 				num++;
@@ -69,7 +69,7 @@ module.exports.update.stops = function() {
 							'Latitude': stop.Latitude,
 							'Longitude': stop.Longitude,
 							'Routes': [stops.ID]
-						}
+						};
 						stopsNew.push(stopObject);
 					} else {
 						stopsNew[stopDuplicateIndex].Routes.push(stops.ID);
@@ -81,7 +81,7 @@ module.exports.update.stops = function() {
 				if (err) return console.log('File update failed:' + err);
 			});
 			stops = module.exports.data.routes = stopsNew;
-		};
-	};
+		}
+	}
 	getRouteFile();
 };
