@@ -5,6 +5,10 @@ var routes = require('./routes.json');
 var stops = require('./stops.json');
 
 module.exports.update = {};
+module.exports.data = {
+	'routes': routes,
+	'stops': stops
+};
 
 module.exports.update.routes = function() {
 	var routesNew = [];
@@ -26,13 +30,12 @@ module.exports.update.routes = function() {
 		JSON.stringify(routesNew, null, 2), function (err) {
 			if (err) return console.log('File update failed: ' + err);
 		});
-		routes = routesNew;
+		routes = module.exports.data.routes = routesNew;
 	});
 };
 
 module.exports.update.stops = function() {
 	var stopsRaw = [];
-	var routes = require('./routes.json');
 
 	function getRouteFile(num = 0) {
 		if(num < routes.length) {
@@ -77,13 +80,8 @@ module.exports.update.stops = function() {
 			JSON.stringify(stopsNew, null, 2), function (err) {
 				if (err) return console.log('File update failed:' + err);
 			});
-			stops = stopsNew;
+			stops = module.exports.data.routes = stopsNew;
 		};
 	};
 	getRouteFile();
-};
-
-module.exports.data = {
-	'routes': routes,
-	'stops': stops
 };
