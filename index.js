@@ -28,7 +28,7 @@ server.use(bodyParser.json()); // support json encoded bodies
 
 //server.post('/', (req, res) => res.JSON(comms.processRequest(req, cache.data)));
 
-server.get('/', (req, res) => {
+server.post('/', (req, res) => {
   const app = new apiaiApp({req, res});
   console.log('Request headers: ' + JSON.stringify(req.headers));
 	console.log('Request body: ' + JSON.stringify(req.body));
