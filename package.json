@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/iansan5653/usf-assistant#readme",
   "dependencies": {
+    "actions-on-google": "^1.1.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "file-system": "^2.2.2",

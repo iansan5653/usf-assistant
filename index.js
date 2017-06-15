@@ -4,12 +4,15 @@ var express = require('express');
 var request = require('request');
 var fs = require('file-system');
 
-var app = express();
+var server = express();
 var port = process.env.PORT || 8080;
+
+var apiaiApp = require('actions-on-google').ApiAiApp;
+
 
 var cache = require('./cache/index');
 var apiai = require('./apiai/index');
-var comms = require('./comms/index');
+//var comms = require('./processing/index');
 
 Array.prototype.pushIfNew = function(item) {
 	duplicateIndex = this.findIndex(element => {
@@ -21,11 +24,18 @@ Array.prototype.pushIfNew = function(item) {
 };
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.json()); // support json encoded bodies
+server.use(bodyParser.json()); // support json encoded bodies
 
-app.post('/', (req, res) => res.JSON(comms.processRequest(req, cache.data)));
+//server.post('/', (req, res) => res.JSON(comms.processRequest(req, cache.data)));
 
-app.get('/update-entity', (req, res) => {
+exports.sillyNameMaker = (req, res) => {
+  const app = new apiaiApp({req, res});
+  console.log('Request headers: ' + JSON.stringify(req.headers));
+	console.log('Request body: ' + JSON.stringify(req.body));
+	app.tell('Hello....');
+};
+
+server.get('/update-entity', (req, res) => {
 	var updateType = req.query.type,
 			key = req.query.key;
 
@@ -39,7 +49,7 @@ app.get('/update-entity', (req, res) => {
 	}
 });
 
-app.get('/update-cache', (req, res) => {
+server.get('/update-cache', (req, res) => {
 	var updateType = req.query.type;
 
 	if(updateType == 'routes') {
@@ -52,7 +62,7 @@ app.get('/update-cache', (req, res) => {
 });
 
 // start the server
-app.listen(port, err => {	
+server.listen(port, err => {	
 	if (err) {
 		return console.log('something bad happened', err);
 	}
