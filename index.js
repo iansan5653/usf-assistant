@@ -28,11 +28,21 @@ server.use(bodyParser.json()); // support json encoded bodies
 
 //server.post('/', (req, res) => res.JSON(comms.processRequest(req, cache.data)));
 
-exports.sillyNameMaker = (req, res) => {
+exports.Next_Bus_Time = (req, res) => {
   const app = new apiaiApp({req, res});
   console.log('Request headers: ' + JSON.stringify(req.headers));
 	console.log('Request body: ' + JSON.stringify(req.body));
-	app.tell('Hello....');
+	  // Make a silly name
+  function giveStop(app) {
+    let stop = app.getArgument('stop');
+
+    app.tell('The stop requested is:' + stop);
+  }
+
+  let actionMap = new Map();
+  actionMap.set('give_time', giveStop);
+
+	app.handleRequest(actionMap);
 };
 
 server.get('/update-entity', (req, res) => {
