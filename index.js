@@ -7,8 +7,8 @@ var fs = require('file-system');
 var server = express();
 var port = process.env.PORT || 8080;
 
+process.env.DEBUG = 'actions-on-google:*';
 var apiaiApp = require('actions-on-google').ApiAiApp;
-
 
 var cache = require('./cache/index');
 var apiai = require('./apiai/index');
@@ -28,7 +28,7 @@ server.use(bodyParser.json()); // support json encoded bodies
 
 //server.post('/', (req, res) => res.JSON(comms.processRequest(req, cache.data)));
 
-exports.Next_Bus_Time = (req, res) => {
+server.get('/', (req, res) => {
   const app = new apiaiApp({req, res});
   console.log('Request headers: ' + JSON.stringify(req.headers));
 	console.log('Request body: ' + JSON.stringify(req.body));
@@ -43,7 +43,7 @@ exports.Next_Bus_Time = (req, res) => {
   actionMap.set('give_time', giveStop);
 
 	app.handleRequest(actionMap);
-};
+});
 
 server.get('/update-entity', (req, res) => {
 	var updateType = req.query.type,
