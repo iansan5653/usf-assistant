@@ -8,11 +8,12 @@ var server = express();
 var port = process.env.PORT || 8080;
 
 process.env.DEBUG = 'actions-on-google:*';
-var apiaiApp = require('actions-on-google').ApiAiApp;
+var ApiAiApp = require('actions-on-google').ApiAiApp;
+
 
 var cache = require('./cache/index');
 var apiai = require('./apiai/index');
-//var comms = require('./processing/index');
+var comms = require('./comms/index');
 
 Array.prototype.pushIfNew = function(item) {
 	duplicateIndex = this.findIndex(element => {
@@ -26,24 +27,7 @@ Array.prototype.pushIfNew = function(item) {
 var bodyParser = require('body-parser');
 server.use(bodyParser.json()); // support json encoded bodies
 
-//server.post('/', (req, res) => res.JSON(comms.processRequest(req, cache.data)));
-
-server.post('/', (req, res) => {
-  const app = new apiaiApp({req, res});
-  console.log('Request headers: ' + JSON.stringify(req.headers));
-	console.log('Request body: ' + JSON.stringify(req.body));
-	  // Make a silly name
-  function giveStop(app) {
-    let stop = app.getArgument('stop');
-
-    app.tell('The stop requested is:' + stop);
-  }
-
-  let actionMap = new Map();
-  actionMap.set('give_time', giveStop);
-
-	app.handleRequest(actionMap);
-});
+server.post('/', (req, res) => comms.apiai(req, res, cache.data));
 
 server.get('/update-entity', (req, res) => {
 	var updateType = req.query.type,
