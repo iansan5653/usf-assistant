@@ -87,13 +87,12 @@ module.exports.apiai = function(req, res, data) {
 
   // Status of the system
   function overallStatus(app) {
-  	request('https://usfbullrunner.com/Region/0/Routes', (error, res1, body) => {
+  	request('https://usfbullrunner.com/Stop/95548/Arrivals?customerID=3', (error, res1, body) => {
 
   		bodyJSON = JSON.parse(body);
 
   		if (!error && res1.statusCode == 200) {
-  			var activeRoutes = bodyJSON.filter(route => route.NumberOfVehicles !== 0);
-  			if(activeRoutes.length === 0) {
+  			if(bodyJSON.length === 0) {
   				app.tell(app.buildRichResponse()
   					.addSimpleResponse('There are not currently any buses running. Please check the USF Bull Runner hours of operation.')
   					.addBasicCard(app.buildBasicCard('USF Bull Runner - Hours of Operation')
@@ -102,20 +101,20 @@ module.exports.apiai = function(req, res, data) {
   				);
   			} else {
   				// Construct an array of active route letters
-  				activeRoutes.letters = [];
-  				activeRoutes.forEach(activeRoute => {
-  					var route = data.routes.find(cacheRoute => cacheRoute.ID == activeRoute.ID);
-  					activeRoutes.letters.push(route.Letter);
+  				activeRoutes = [];
+  				bodyJSON.forEach(activeRoute => {
+  					var route = data.routes.find(cacheRoute => cacheRoute.ID == activeRoute.RouteID);
+  					activeRoutes.push(route.Letter);
   				});
+  				activeRoutes.sort();
 
   				// If multiple active routes, use plural
   				var plural = (activeRoutes.length == 1) ? {lttr: '', word: 'is'} : {lttr: 's', word: 'are'};
 
   				//The Bull Runner is currently operating. Route{s} {A, B, and C} {are} active.
-
   				var response = app.buildRichResponse()
   					.addSimpleResponse('The Bull Runner is currently operating. Route' + 
-  						plural.lttr + ' ' + activeRoutes.letters.toSpokenList() + ' ' + plural.word + ' active.');
+  						plural.lttr + ' ' + activeRoutes.toSpokenList() + ' ' + plural.word + ' active.');
 
   				if(hasScreen) {
   					response.addSimpleResponse('Check out this link for a live map:')
