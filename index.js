@@ -10,7 +10,6 @@ var port = process.env.PORT || 8080;
 process.env.DEBUG = 'actions-on-google:*';
 var ApiAiApp = require('actions-on-google').ApiAiApp;
 
-
 var cache = require('./cache/index');
 var apiai = require('./apiai/index');
 var comms = require('./comms/index');
@@ -22,6 +21,16 @@ Array.prototype.pushIfNew = function(item) {
 	if(duplicateIndex == -1) {
 		this.push(item);
 	}
+};
+
+Array.prototype.toSpokenList = function() {
+	// Converts an array (['one', 'two', 'three']) to a list ('one, two, and three')
+	if(this.length == 1) {
+		return this[0];
+	} else {
+    var last = this.pop();
+    return this.join(', ') + ' and ' + last;
+  }
 };
 
 var bodyParser = require('body-parser');
