@@ -155,8 +155,8 @@ module.exports.apiai = function(req, res, data) {
 
 					// There {are} currently {3} bus{es} on that route.
 					var strings = [
-						'<speak>There ' + plural.word + ' currently <say-as interpret-as="cardinal">' 
-						+ activeBuses.length + '</say-as> bus' + plural.lttr + ' on that route.'
+						'<speak>There ' + plural.word + ' currently <say-as interpret-as="cardinal">' +
+						activeBuses.length + '</say-as> bus' + plural.lttr + ' on that route.'
 					];
 					activeBuses.forEach((bus, index) => {
 						var string = "";
@@ -165,24 +165,33 @@ module.exports.apiai = function(req, res, data) {
 
 					var response = app.buildRichResponse()
 						// There {are} currently {3} bus{es} on that route.
-  					.addSimpleResponse('There ' + plural.word + ' currently ' + activeBuses.length + ' bus' + plural.lttr + ' on that route.')
+  					.addSimpleResponse('There ' + plural.word + ' currently ' + activeBuses.length + ' bus' + plural.lttr + ' on that route.');
   				
   				app.tell(response);
 				}
+
   		} else {
   			app.tell('Sorry, there was an error retrieving information from the Bull Runner.');
   		}
 		});
   }
 
-  // Closest stop
-  function closestStop(app) {
+  // Get permission to access user location to find closest stop
+  // Output context possibly includes route
+  function closestStopPermission(app) {
   	app.askForPermission('To find stops near your location', app.SupportedPermissions.DEVICE_PRECISE_LOCATION);
+  }
 
+  // Get closest stop
+  // Input context possibly includes route
+  function closestStop(app) {
+  	var context = assistant.getContext('request_permission');
+
+  	// Testing if null includes if the location couldn't be found and permissions were granted
 		if (app.getDeviceLocation() !== null) {
 		  var deviceCoordinates = app.getDeviceLocation().coordinates;
-		  if(app.getArgument('route')) {
-		  	var routeGiven = data.routes.find(route => route.Name == app.getArgument('route'));
+		  if(context.parameters[route]) {
+		  	var routeGiven = data.routes.find(route => route.Name == context.parameters[route]);
 		  }
 
 		  var closest = data.stops[0];
@@ -190,7 +199,7 @@ module.exports.apiai = function(req, res, data) {
 
 		  data.stops.forEach(stop => {
 		  	// If a route is specified, we want to avoid that slow math for stops on other routes
-		  	if(app.getArgument('route')) {
+		  	if(context.parameters[route]) {
 		  		if(stop.Routes.includes(routeGiven.ID)) {
 		  			let distance = getDistance(stop, deviceCoordinates);
 		  			if(distance < closest.Distance) {
@@ -218,6 +227,7 @@ module.exports.apiai = function(req, res, data) {
   var actionMap = new Map();
   actionMap.set('give_time', nextBus);
   actionMap.set('overall_status', overallStatus);
+  actionMap.set('closest_stop_permission', closestStopPermission);
   actionMap.set('closest_stop', closestStop);
 
 	app.handleRequest(actionMap);
