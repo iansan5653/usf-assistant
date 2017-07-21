@@ -190,8 +190,8 @@ module.exports.apiai = function(req, res, data) {
   	// Testing if null includes if the location couldn't be found and permissions were granted
 		if (app.getDeviceLocation() !== null) {
 		  var deviceCoordinates = app.getDeviceLocation().coordinates;
-		  if(context.parameters[route]) {
-		  	var routeGiven = data.routes.find(route => route.Name == context.parameters[route]);
+		  if(context.parameters['route']) {
+		  	var routeGiven = data.routes.find(route => route.Name == context.parameters['route']);
 		  }
 
 		  var closest = data.stops[0];
@@ -199,7 +199,7 @@ module.exports.apiai = function(req, res, data) {
 
 		  data.stops.forEach(stop => {
 		  	// If a route is specified, we want to avoid that slow math for stops on other routes
-		  	if(context.parameters[route]) {
+		  	if(context.parameters['route']) {
 		  		if(stop.Routes.includes(routeGiven.ID)) {
 		  			let distance = getDistance(stop, deviceCoordinates);
 		  			if(distance < closest.Distance) {
