@@ -14,6 +14,10 @@ var cache = require('./cache/index');
 var apiai = require('./apiai/index');
 var comms = require('./comms/index');
 
+Number.prototype.toRad = function() {
+	return angle * (Math.PI / 180);
+}
+
 Array.prototype.pushIfNew = function(item) {
 	duplicateIndex = this.findIndex(element => {
 		return item == element;
@@ -32,6 +36,8 @@ Array.prototype.toSpokenList = function() {
     return this.join(', ') + ' and ' + last;
   }
 };
+
+
 
 var bodyParser = require('body-parser');
 server.use(bodyParser.json()); // support json encoded bodies
