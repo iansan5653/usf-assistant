@@ -230,9 +230,9 @@ module.exports.apiai = function(req, res, data) {
 				bodyJSON = JSON.parse(body);
 
 				if (!error && res1.statusCode == 200) {
-					if (bodyJSON.length === 0) {
+					if (bodyJSON.length === 0 || true) {
 						let response = app.buildRichResponse()
-							.addSimpleResponse('There aren\'t any buses servicing Stop ' + stop.Name + ' (Stop ' + stop.Number + ') right now. Please ensure that the Bull Runner is currently operating.')
+							.addSimpleResponse('There aren\'t any buses servicing Stop ' + stop.Name + ' (Stop ' + stop.Number + ') right now. Please ensure that that route is currently operating.')
 							.addSuggestions('Are the buses running?')
 							.addSuggestionLink('Bull Runner Hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
 						app.ask(response);
