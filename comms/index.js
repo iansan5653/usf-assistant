@@ -8,11 +8,11 @@ function getDistance(cachedStop, currentLoc) {
 		lat: cachedStop.Latitude - currentLoc.latitude,
 		lon: cachedStop.Longitude - currentLoc.longitude
 	};
-	
+
 	// Average longitude in radians
 	var aveLonRad = ((cachedStop.Longitude + currentLoc.Longitude) / 2) * 180 / Math.PI;
 	var distance = Math.sqrt(Math.pow(delta.lat, 2) + Math.pow(Math.cos(aveLonRad), 2) * delta.lon);
-
+	console.log(distance);
 	return distance;
 }
 
