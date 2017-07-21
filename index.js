@@ -15,8 +15,8 @@ var apiai = require('./apiai/index');
 var comms = require('./comms/index');
 
 Number.prototype.toRad = function() {
-	return angle * (Math.PI / 180);
-}
+	return this * (Math.PI / 180);
+};
 
 Array.prototype.pushIfNew = function(item) {
 	duplicateIndex = this.findIndex(element => {
