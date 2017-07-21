@@ -199,8 +199,9 @@ module.exports.apiai = function(req, res, data) {
   	// Testing if null includes if the location couldn't be found and permissions were granted
 		if (app.getDeviceLocation() !== null) {
 		  var deviceCoordinates = app.getDeviceLocation().coordinates;
+		  context.parameters['route'];
 		  if(context.parameters['route']) {
-		  	var routeGiven = data.routes.find(route => route.Name == context.parameters['route']);
+		  	var routeGiven = data.routes.find(route => route.Letter == context.parameters['route']);
 		  }
 
 		  var closest = data.stops[0];
