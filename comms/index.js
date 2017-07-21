@@ -186,7 +186,7 @@ module.exports.apiai = function(req, res, data) {
   // Input context possibly includes route
   function closestStop(app) {
   	var context = assistant.getContext('request_permission');
-  	app.tell('Cool, thanks. You\'re at ' + app.getDeviceLocation().coordinates);
+  	app.tell('Cool, thanks. You\'re at ' + app.isPermissionGranted());
   	/*
   	// Testing if null includes if the location couldn't be found and permissions were granted
 		if (app.getDeviceLocation() !== null) {
