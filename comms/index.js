@@ -230,11 +230,11 @@ module.exports.apiai = function(req, res, data) {
 				bodyJSON = JSON.parse(body);
 
 				if (!error && res1.statusCode == 200) {
-					if (bodyJSON.length === 0 || true) {
+					if (bodyJSON.length === 0) {
 						let response = app.buildRichResponse()
-							.addSimpleResponse('There aren\'t any buses servicing Stop ' + stop.Name + ' (Stop ' + stop.Number + ') right now. Please ensure that that route is currently operating.')
+							.addSimpleResponse('There aren\'t any buses servicing ' + stop.Name + ' (Stop ' + stop.Number + ') right now. Please ensure that that route is currently operating.')
 							.addSuggestions('Are the buses running?')
-							.addSuggestionLink('Bull Runner Hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
+							.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
 						app.ask(response);
 
 					} else if(bodyJSON.length === 1 || routeGiven) {	
@@ -247,13 +247,21 @@ module.exports.apiai = function(req, res, data) {
 
 						var routeName = data.routes.find(route => route.ID == bodyJSON[index].RouteID).Name;
 
+						let response = app.buildRichResponse()
+							.addSuggestions(['Navigate to this stop', 'Status of this route', 'More info about this stop'])
+
 						if(!routeGiven) {
-							app.tell('The next bus will arrive on ' + routeName + ' in ' + minutes + ' minute' + plural + '.');
+							response.addSimpleResponse('The next bus will arrive on ' + routeName + ' in ' + minutes + ' minute' + plural + '.');
 						} else {
+							response.addSuggestions('Other routes');
 							if(routeName == routeGiven.Name) {
-								app.tell('The next bus will arrive in ' + minutes + ' minute' + plural + '.');
+								// The next bus on {Route A} will arrive at {Communication Sciences} ({Stop 222}) in {10} minute{s}.
+								response.addSimpleResponse('The next bus on ' + routeName + ' will arrive at ' + stop.Name + ' (Stop ' + stop.Number + ') in ' + minutes + ' minute' + plural + '.');
 							} else {
-								app.tell('It looks like this stop isn\'t currently being serviced by that route.');
+								// {Route A} isn't currently servicing {Communication Sciences} ({Stop 222}). Please ensure that that route connects with this stop and that both are currently operating.
+								response.addSuggestions('Are the buses running?')
+									.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
+									.addSimpleResponse(routeName + ' isn\'t currently servicing' + stop.Name + ' (Stop ' + stop.Number + '). Please ensure that that route connects with this stop and that both are currently operating.');
 							}
 						}
 
