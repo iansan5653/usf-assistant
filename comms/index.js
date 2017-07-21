@@ -265,6 +265,8 @@ module.exports.apiai = function(req, res, data) {
 							}
 						}
 
+						app.ask(response);
+
 					} else {
 						var strings = ['There are ' + bodyJSON.length + ' routes serving this stop right now.'];
 
@@ -280,7 +282,13 @@ module.exports.apiai = function(req, res, data) {
 						});
 
 						// Add a transition phrase to the last string
-						strings[strings.length - 1] = strings[strings.length - 1].replace(/^\S+/g, 'Finally, on');
+						if(strings.length > 2) {
+							strings[strings.length - 1] = strings[strings.length - 1].replace(/^\S+/g, 'Finally, on');
+						}
+
+						let response = app.buildRichResponse()
+							.addSimpleResponse(strings.join(' '))
+							.addSuggestions(['Navigate to this stop'])
 
 						app.tell(strings.join(' '));
 					}
