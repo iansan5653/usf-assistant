@@ -4,9 +4,13 @@ var request = require('request');
 var ApiAiApp = require('actions-on-google').ApiAiApp;
 
 function getDistance(cachedStop, currentLoc) {
+	var deltaDeg = {
+		lat: (cachedStop.Latitude - currentLoc.latitude),
+		lon: (cachedStop.Longitude - currentLoc.longitude)
+	};
 	var delta = {
-		lat: (cachedStop.Latitude - currentLoc.latitude).toRad(),
-		lon: (cachedStop.Longitude - currentLoc.longitude).toRad()
+		lat: deltaDeg.lat.toRad(),
+		lon: deltaDeg.lon.toRad()
 	};
 	var radius = 6371; // km, of Earth
 
