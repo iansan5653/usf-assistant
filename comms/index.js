@@ -8,9 +8,12 @@ function getDistance(cachedStop, currentLoc) {
 		lat: cachedStop.Latitude - currentLoc.latitude,
 		lon: cachedStop.Longitude - currentLoc.longitude
 	};
+	
 	// Average longitude in radians
 	var aveLonRad = ((cachedStop.Longitude + currentLoc.Longitude) / 2) * 180 / Math.PI;
 	var distance = Math.sqrt(Math.pow(delta.lat, 2) + Math.pow(Math.cos(aveLonRad), 2) * delta.lon);
+
+	return distance;
 }
 
 module.exports.apiai = function(req, res, data) {
@@ -186,7 +189,6 @@ module.exports.apiai = function(req, res, data) {
   // Input context possibly includes route
   function closestStop(app) {
   	var context = app.getContext('request_permission');
-  	console.log('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH');
   	// Testing if null includes if the location couldn't be found and permissions were granted
 		if (app.getDeviceLocation() !== null) {
 		  var deviceCoordinates = app.getDeviceLocation().coordinates;
@@ -198,7 +200,6 @@ module.exports.apiai = function(req, res, data) {
 		  closest.Distance = getDistance(data.stops[0], deviceCoordinates);
 
 		  data.stops.forEach(stop => {
-		  	console.log(closest.Distance);
 		  	// If a route is specified, we want to avoid that math for stops on other routes
 		  	if(context.parameters['route']) {
 		  		if(stop.Routes.includes(routeGiven.ID)) {
@@ -215,7 +216,6 @@ module.exports.apiai = function(req, res, data) {
 	  				closest = stop;
 	  				closest.Distance = distance;
 	  			}
-	  			console.log(distance);
 		  	}
 		  });
 
