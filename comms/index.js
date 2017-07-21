@@ -23,6 +23,14 @@ function getDistance(cachedStop, currentLoc) {
 	return distance;
 }
 
+// Returns a Google Maps url with navigation from current location to coordinates
+function getNavURL(targetLoc, travelMode) {
+	var baseURL = 'https://www.google.com/maps/dir/?api=1&',
+		lat = encodeURI(targetLoc.Latitude),
+		lon = encodeURI(targetLoc.Longitude);
+	return baseURL + 'destination=' + lat + ',' + lon + '&travelMode=' + travelMode;
+}
+
 module.exports.apiai = function(req, res, data) {
 	var app = new ApiAiApp({request: req, response: res});
 	var hasScreen =
@@ -243,25 +251,36 @@ module.exports.apiai = function(req, res, data) {
 
 						var seconds = bodyJSON[index].Arrivals[0].SecondsToArrival;
 						var minutes = Math.floor(seconds / 60);
+						
+						// Sometimes, if a bus is already there the minutes will be 0 or negative. In that case we use the next bus if there is one.
+						if(minutes < 1 && bodyJSON[index].Arrivals.length > 1) {
+							seconds = bodyJSON[index].Arrivals[1].SecondsToArrival;
+							minutes = Math.floor(seconds / 60);
+						}
+
 						var plural = (minutes == 1) ? '' : 's'; // If multiple minutes, use plural units
 
 						var routeName = data.routes.find(route => route.ID == bodyJSON[index].RouteID).Name;
 
-						let response = app.buildRichResponse()
-							.addSuggestions(['Navigate to this stop', 'Status of this route', 'More info about this stop'])
+						let response = app.buildRichResponse();
 
 						if(!routeGiven) {
-							response.addSimpleResponse('The next bus will arrive on ' + routeName + ' in ' + minutes + ' minute' + plural + '.');
+							response.addSimpleResponse('The next bus will arrive on ' + routeName + ' in ' + minutes + ' minute' + plural + '.')
+								.addSuggestionLink('walking directions', getNavURL(stop, 'walking'))
+								.addSuggestionLink('biking directions', getNavURL(stop, 'bicycling'))
+								.addSuggestions(['Status of this route', 'More info about this stop']);
 						} else {
-							response.addSuggestions('Other routes');
 							if(routeName == routeGiven.Name) {
 								// The next bus on {Route A} will arrive at {Communication Sciences} ({Stop 222}) in {10} minute{s}.
-								response.addSimpleResponse('The next bus on ' + routeName + ' will arrive at ' + stop.Name + ' (Stop ' + stop.Number + ') in ' + minutes + ' minute' + plural + '.');
+								response.addSimpleResponse('The next bus on ' + routeName + ' will arrive at ' + stop.Name + ' (Stop ' + stop.Number + ') in ' + minutes + ' minute' + plural + '.')
+									.addSuggestionLink('walking directions', getNavURL(stop, 'walking'))
+									.addSuggestionLink('biking directions', getNavURL(stop, 'bicycling'))
+									.addSuggestions(['What about other routes?', 'Status of this route', 'More info about this stop']);
 							} else {
 								// {Route A} isn't currently servicing {Communication Sciences} ({Stop 222}). Please ensure that that route connects with this stop and that both are currently operating.
-								response.addSuggestions('Are the buses running?')
-									.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
-									.addSimpleResponse(routeName + ' isn\'t currently servicing' + stop.Name + ' (Stop ' + stop.Number + '). Please ensure that that route connects with this stop and that both are currently operating.');
+								response.addSimpleResponse(routeName + ' isn\'t currently servicing' + stop.Name + ' (Stop ' + stop.Number + '). Please ensure that that route connects with this stop and that both are currently operating.')
+									.addSuggestions(['What about other routes?', 'Are the buses running?', 'Status of this route'])
+									.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');									
 							}
 						}
 
@@ -274,6 +293,13 @@ module.exports.apiai = function(req, res, data) {
 						bodyJSON.forEach(stopRoute => {
 							var seconds = stopRoute.Arrivals[0].SecondsToArrival;
 							var minutes = Math.floor(seconds / 60);
+
+							// Sometimes, if a bus is already there the minutes will be 0 or negative. In that case we use the next bus if there is one.
+							if(minutes < 1 && bodyJSON[index].Arrivals.length > 1) {
+								seconds = bodyJSON[index].Arrivals[1].SecondsToArrival;
+								minutes = Math.floor(seconds / 60);
+							}
+
 							var plural = (minutes == 1) ? '' : 's'; // If multiple minutes, use plural units
 
 							var routeName = data.routes.find(route => route.ID == stopRoute.RouteID).Name;
@@ -281,16 +307,17 @@ module.exports.apiai = function(req, res, data) {
 							strings.push('On ' + routeName + ', the next bus will arrive in ' + minutes + ' minute' + plural + '.');
 						});
 
-						// Add a transition phrase to the last string
+						// Add a transition phrase to the last string if it's a longer list
 						if(strings.length > 2) {
 							strings[strings.length - 1] = strings[strings.length - 1].replace(/^\S+/g, 'Finally, on');
 						}
 
 						let response = app.buildRichResponse()
 							.addSimpleResponse(strings.join(' '))
-							.addSuggestions(['Navigate to this stop'])
+							.addSuggestionLink('walking directions', getNavURL(stop, 'walking'))
+							.addSuggestionLink('biking directions', getNavURL(stop, 'bicycling'));
 
-						app.tell(strings.join(' '));
+						app.ask(response);
 					}
 
 				} else {
@@ -301,7 +328,7 @@ module.exports.apiai = function(req, res, data) {
   	} else {
   		let response = app.buildRichResponse()
   			.addSimpleResponse('Sorry, I couldn\'t find the stop you requested. It may help to refer to the stop by its number instead of its name.')
-  			.addSuggestions('What is the closest stop?');
+  			.addSuggestions(['What is the closest stop?', 'Are the buses running?']);
   		app.ask(response);
   	}
   }
