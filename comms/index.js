@@ -199,7 +199,7 @@ module.exports.apiai = function(req, res, data) {
 
 		  data.stops.forEach(stop => {
 		  	console.log(closest.Distance);
-		  	// If a route is specified, we want to avoid that slow math for stops on other routes
+		  	// If a route is specified, we want to avoid that math for stops on other routes
 		  	if(context.parameters['route']) {
 		  		if(stop.Routes.includes(routeGiven.ID)) {
 		  			let distance = getDistance(stop, deviceCoordinates);
@@ -215,8 +215,8 @@ module.exports.apiai = function(req, res, data) {
 	  				closest = stop;
 	  				closest.Distance = distance;
 	  			}
+	  			console.log(distance);
 		  	}
-		  	console.log(distance);
 		  });
 
 		  app.ask('The closest stop to your current location is Stop ' + closest.Number + ', commonly called ' + closest.Name +
