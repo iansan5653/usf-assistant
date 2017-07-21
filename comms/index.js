@@ -24,11 +24,11 @@ function getDistance(cachedStop, currentLoc) {
 }
 
 // Returns a Google Maps url with navigation from current location to coordinates
-function getNavURL(targetLoc, travelMode) {
+function getNavURL(targetLoc) {
 	var baseURL = 'https://www.google.com/maps/dir/?api=1&',
 		lat = encodeURI(targetLoc.Latitude),
 		lon = encodeURI(targetLoc.Longitude);
-	return baseURL + 'destination=' + lat + ',' + lon + '&travelMode=' + travelMode;
+	return baseURL + 'destination=' + lat + ',' + lon;
 }
 
 module.exports.apiai = function(req, res, data) {
@@ -187,7 +187,8 @@ module.exports.apiai = function(req, res, data) {
 		  app.setContext('selected_stop', 3, closest);
 
 		  var response = app.buildRichResponse()
-		  	.addSuggestions(['Next buses', 'Connected routes', 'Navigate']);
+		  	.addSuggestions('When is the next bus at this stop?')
+		  	.addSuggestionLink('nagivation', getNavURL(closest));
 
 		  if(routeGiven) {
 		  	// The closest stop on {Route A} is Stop {222}, {Communication Sciences}.
@@ -211,6 +212,9 @@ module.exports.apiai = function(req, res, data) {
   function nextBus(app) {
   	var routeContext = app.getContext('selected_route');
   	var stopContext = app.getContext('selected_stop');
+
+  	// If we provide one route's info and the user explicitly wants them all, give it to them as a followup
+  	var showAllContext = app.getContext('show_all');
 
   	var stop = null;
   	// If there's no stop context, then an explicit stop argument is required so stop should never be null
@@ -245,7 +249,7 @@ module.exports.apiai = function(req, res, data) {
 							.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
 						app.ask(response);
 
-					} else if(bodyJSON.length === 1 || routeGiven) {	
+					} else if((bodyJSON.length === 1 || routeGiven) && !showAllContext) {	
 						// Use the first (only) route if no route given, otherwise use the given route:
 						var index = (routeGiven) ? bodyJSON.findIndex(route => route.RouteID == routeGiven.ID) : 0;
 
@@ -266,15 +270,13 @@ module.exports.apiai = function(req, res, data) {
 
 						if(!routeGiven) {
 							response.addSimpleResponse('The next bus will arrive on ' + routeName + ' in ' + minutes + ' minute' + plural + '.')
-								.addSuggestionLink('walking directions', getNavURL(stop, 'walking'))
-								.addSuggestionLink('biking directions', getNavURL(stop, 'bicycling'))
+								.addSuggestionLink('navigation', getNavURL(stop))
 								.addSuggestions(['Status of this route', 'More info about this stop']);
 						} else {
 							if(routeName == routeGiven.Name) {
 								// The next bus on {Route A} will arrive at {Communication Sciences} ({Stop 222}) in {10} minute{s}.
 								response.addSimpleResponse('The next bus on ' + routeName + ' will arrive at ' + stop.Name + ' (Stop ' + stop.Number + ') in ' + minutes + ' minute' + plural + '.')
-									.addSuggestionLink('walking directions', getNavURL(stop, 'walking'))
-									.addSuggestionLink('biking directions', getNavURL(stop, 'bicycling'))
+									.addSuggestionLink('navigation', getNavURL(stop))
 									.addSuggestions(['What about other routes?', 'Status of this route', 'More info about this stop']);
 							} else {
 								// {Route A} isn't currently servicing {Communication Sciences} ({Stop 222}). Please ensure that that route connects with this stop and that both are currently operating.
@@ -314,8 +316,7 @@ module.exports.apiai = function(req, res, data) {
 
 						let response = app.buildRichResponse()
 							.addSimpleResponse(strings.join(' '))
-							.addSuggestionLink('walking directions', getNavURL(stop, 'walking'))
-							.addSuggestionLink('biking directions', getNavURL(stop, 'bicycling'));
+							.addSuggestionLink('navigation', getNavURL(stop));
 
 						app.ask(response);
 					}
@@ -327,7 +328,7 @@ module.exports.apiai = function(req, res, data) {
 
   	} else {
   		let response = app.buildRichResponse()
-  			.addSimpleResponse('Sorry, I couldn\'t find the stop you requested. It may help to refer to the stop by its number instead of its name.')
+  			.addSimpleResponse('Sorry, I couldn\'t find the stop you requested. It may help to refer to the stop by its number rather than its name.')
   			.addSuggestions(['What is the closest stop?', 'Are the buses running?']);
   		app.ask(response);
   	}
