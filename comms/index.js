@@ -5,18 +5,31 @@ var ApiAiApp = require('actions-on-google').ApiAiApp;
 
 function getDistance(cachedStop, currentLoc) {
 	var delta = {
-		lat: cachedStop.Latitude - currentLoc.latitude,
-		lon: cachedStop.Longitude - currentLoc.longitude
+		lat: (cachedStop.Latitude - currentLoc.latitude).toRad(),
+		lon: (cachedStop.Longitude - currentLoc.longitude).toRad()
 	};
-	console.log(delta);
+	var radius = 6371; // km, of Earth
 
-	// Average longitude in radians
-	var aveLonRad = ((cachedStop.Longitude + currentLoc.Longitude) / 2) * 180 / Math.PI;
-	console.log(aveLonRad);
-	var distance = Math.sqrt(Math.pow(delta.lat, 2) + Math.pow(Math.cos(aveLonRad), 2) * delta.lon);
+	var a = Math.sin(delta.lat/2) * Math.sin(delta.lat/2) + 
+	                Math.cos(cachedStop.Latitude.toRad()) * Math.cos(currentLoc.latitude.toRad()) * 
+	                Math.sin(delta.lon/2) * Math.sin(delta.lon/2);  
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+	var distance = radius * c; 
 	console.log(distance);
 	return distance;
 }
+
+from math import radians, cos, sin, asin, sqrt
+def haversine(lon1, lat1, lon2, lat2):
+    # convert decimal degrees to radians 
+    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+    # haversine formula 
+    dlon = lon2 - lon1 
+    dlat = lat2 - lat1 
+    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
+    c = 2 * asin(sqrt(a)) 
+    km = 6367 * c
+    return km
 
 module.exports.apiai = function(req, res, data) {
 	var app = new ApiAiApp({request: req, response: res});
