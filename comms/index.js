@@ -187,7 +187,7 @@ module.exports.apiai = function(req, res, data) {
 		  app.setContext('selected_stop', 3, closest);
 
 		  var response = app.buildRichResponse()
-		  	.addSuggestions('When is the next bus at this stop?')
+		  	.addSuggestions('When is the next bus?')
 		  	.addSuggestionLink('nagivation', getNavURL(closest));
 
 		  if(routeGiven) {
@@ -211,6 +211,7 @@ module.exports.apiai = function(req, res, data) {
   // Input context selected_stop waives the requirement for a stop parameter and uses a previously discussed stop
   function nextBus(app) {
   	var routeContext = app.getContext('selected_route');
+  	var routeArg = app.getArgument('stop');
   	var stopContext = app.getContext('selected_stop');
 
   	// If we provide one route's info and the user explicitly wants them all, give it to them as a followup
@@ -228,8 +229,8 @@ module.exports.apiai = function(req, res, data) {
   	var routeGiven = null;
   	// If a route context exists, use it if no route is explictly provided
   	// If a route is explicitly provided, use it and set the context
-  	if(app.getArgument('route')) {
-	  	routeGiven = data.routes.find(route => route.Letter == app.getArgument('route'));
+  	if(routeArg) {
+	  	routeGiven = data.routes.find(route => route.Letter == routeArg);
 	  	app.setContext('selected_route', 3, routeGiven);
 	  } else if(routeContext) {
 	  	routeGiven = routeContext;
@@ -249,7 +250,9 @@ module.exports.apiai = function(req, res, data) {
 							.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
 						app.ask(response);
 
-					} else if(bodyJSON.length === 1 || (routeGiven && !showAllContext)) {	
+					} else if(bodyJSON.length === 1 || (routeArg) || (routeContext && !showAllContext)) {	
+						// If only one route is servicing the stop, or if there is a route given, or if there is a route context and NOT a show all context
+
 						// Use the first (only) route if no route given, otherwise use the given route:
 						var index = (routeGiven) ? bodyJSON.findIndex(route => route.RouteID == routeGiven.ID) : 0;
 
@@ -257,9 +260,12 @@ module.exports.apiai = function(req, res, data) {
 						var minutes = Math.floor(seconds / 60);
 						
 						// Sometimes, if a bus is already there the minutes will be 0 or negative. In that case we use the next bus if there is one.
-						if(minutes < 1 && bodyJSON[index].Arrivals.length > 1) {
+						if (minutes < 1 && bodyJSON[index].Arrivals.length > 1) {
 							seconds = bodyJSON[index].Arrivals[1].SecondsToArrival;
 							minutes = Math.floor(seconds / 60);
+						} else if (minutes < 0) {
+							// Even if there are no other buses on the route, it never makes since to say a bus will arrive in -N minutes
+							minutes = 0;
 						}
 
 						var plural = (minutes == 1) ? '' : 's'; // If multiple minutes, use plural units
@@ -269,6 +275,7 @@ module.exports.apiai = function(req, res, data) {
 						let response = app.buildRichResponse();
 
 						if(!routeGiven) {
+							// THe next bus will arrive on {Route A} in {10} minute{s}.
 							response.addSimpleResponse('The next bus will arrive on ' + routeName + ' in ' + minutes + ' minute' + plural + '.')
 								.addSuggestionLink('navigation', getNavURL(stop))
 								.addSuggestions(['Status of this route', 'More info about this stop']);
