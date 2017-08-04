@@ -83,47 +83,45 @@ module.exports.apiai = function(req, res, data) {
   }
 
   // Status of a route
-  // TODO add input context and output context
   function routeStatus(app) {
-  	var routeName = app.getArgument('route');
+  	var routeArg = app.getArgument('route');
+  	var routeContext = app.getContext('selected_route');
 
-  	var routeID = data.routes.find(route => route.Name = routeName).ID;
+  	var route = null;
+  	// If a route context exists, use it if no route is explictly provided
+  	// If a route is explicitly provided, use it and set the context
+  	if(routeArg) {
+	  	route = data.routes.find(route => route.Letter == routeArg);
+	  	app.setContext('selected_route', 3, route);
+	  } else if(routeContext) {
+	  	route = routeContext.parameters;
+	  }
 
-  	request('https://usfbullrunner.com/Route/' + routeID + '/Vehicles', (error, res1, body) => {
+  	request('https://usfbullrunner.com/Route/' + route.ID + '/Vehicles', (error, res1, body) => {
 
   		activeBuses = JSON.parse(body);
 
 			if (!error && res1.statusCode == 200) {
 				if(activeBuses.length === 0) {
-					app.tell(app.buildRichResponse()
-  					.addSimpleResponse('There are not currently any buses on that route. Try checking the USF Bull Runner hours of operation.')
-  					.addBasicCard(app.buildBasicCard('USF Bull Runner - Hours of Operation')
-  						.addButton('View Hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
-  					)
+					app.ask(app.buildRichResponse()
+  					.addSimpleResponse('There are not currently any buses on ' + route.Name + '. Try checking the USF Bull Runner hours of operation.')
+  					.addSuggestionLink('hours of operation', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
+  					.addSuggestions(['Are any buses running?'])
   				);
 
 				} else {
-					var plural = (activeBuses.length == 1) ? {lttr: '', word: 'is'} : {lttr: 'es', word: 'are'};
-
-					// There {are} currently {3} bus{es} on that route.
-					var strings = [
-						'<speak>There ' + plural.word + ' currently <say-as interpret-as="cardinal">' +
-						activeBuses.length + '</say-as> bus' + plural.lttr + ' on that route.'
-					];
-					activeBuses.forEach((bus, index) => {
-						var string = "";
-
-					});
+					var plural = (activeBuses.length == 1) ? '' : 'es';
 
 					var response = app.buildRichResponse()
-						// There {are} currently {3} bus{es} on that route.
-  					.addSimpleResponse('There ' + plural.word + ' currently ' + activeBuses.length + ' bus' + plural.lttr + ' on that route.');
+						// {Route A} is currently active, with {3} bus{es} operating.
+  					.addSimpleResponse(route.Name + ' is currently active, with ' + activeBuses.length + ' bus' + plural + ' operating.')
+  					.addSuggestions(['What is the closest stop?']);
   				
-  				app.tell(response);
+  				app.ask(response);
 				}
 
   		} else {
-  			app.tell('Sorry, there was an error retrieving information from the Bull Runner.');
+  			app.tell('Sorry, there was an error retrieving information from the Bull Runner. Please try again later.');
   		}
 		});
   }
@@ -281,13 +279,13 @@ module.exports.apiai = function(req, res, data) {
 							// THe next bus will arrive on {Route A} in {10} minute{s}.
 							response.addSimpleResponse('The next bus will arrive on ' + routeName + ' in ' + minutes + ' minute' + plural + '.')
 								.addSuggestionLink('navigation', getNavURL(stop))
-								.addSuggestions(['Status of this route', 'More info about this stop']);
+								.addSuggestions(['Status of this route']);
 						} else {
 							if(routeName == routeGiven.Name) {
 								// The next bus on {Route A} will arrive at {Communication Sciences} ({Stop 222}) in {10} minute{s}.
 								response.addSimpleResponse('The next bus on ' + routeName + ' will arrive at ' + stop.Name + ' (Stop ' + stop.Number + ') in ' + minutes + ' minute' + plural + '.')
 									.addSuggestionLink('navigation', getNavURL(stop))
-									.addSuggestions(['What about other routes?', 'Status of this route', 'More info about this stop']);
+									.addSuggestions(['What about other routes?', 'Status of this route']);
 							} else {
 								// {Route A} isn't currently servicing {Communication Sciences} ({Stop 222}). Please ensure that that route connects with this stop and that both are currently operating.
 								response.addSimpleResponse(routeName + ' isn\'t currently servicing' + stop.Name + ' (Stop ' + stop.Number + '). Please ensure that that route connects with this stop and that both are currently operating.')
