@@ -217,6 +217,7 @@ module.exports.apiai = function(req, res, data) {
 
   	// If we provide one route's info and the user explicitly wants them all, give it to them as a followup
   	var showAllContext = app.getContext('show_all');
+  	console.log(showAllContext);
 
   	var stop = null;
   	// If there's no stop context, then an explicit stop argument is required so stop should never be null
@@ -292,7 +293,7 @@ module.exports.apiai = function(req, res, data) {
 									.addSuggestions(['What about other routes?', 'Are the buses running?', 'Status of this route'])
 									.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');									
 							}
-							app.setContext('show_all');
+							app.setContext('show_all', 1);
 						}
 
 						app.ask(response);
