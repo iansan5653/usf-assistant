@@ -83,6 +83,7 @@ module.exports.apiai = function(req, res, data) {
   }
 
   // Status of a route
+  // TODO add input context and output context
   function routeStatus(app) {
   	var routeName = app.getArgument('route');
 
@@ -157,7 +158,7 @@ module.exports.apiai = function(req, res, data) {
 		  	// Set the route context for the future
 		  	app.setContext('selected_route', 3, routeGiven);
 		  } else if(routeContext) {
-		  	routeGiven = routeContext;
+		  	routeGiven = routeContext.parameters;
 		  }
 
 		  var closest = data.stops[0];
@@ -225,7 +226,7 @@ module.exports.apiai = function(req, res, data) {
   		stop = data.stops.find(stop => stop.Name == stopArg);
   		app.setContext('selected_stop', 3, stop);
   	} else if(stopContext) {
-  		stop = stopContext;
+  		stop = stopContext.parameters;
   	}
 
   	var routeGiven = null;
@@ -235,7 +236,7 @@ module.exports.apiai = function(req, res, data) {
 	  	routeGiven = data.routes.find(route => route.Letter == routeArg);
 	  	app.setContext('selected_route', 3, routeGiven);
 	  } else if(routeContext) {
-	  	routeGiven = routeContext;
+	  	routeGiven = routeContext.parameters;
 	  }
 
   	if(stop) {
