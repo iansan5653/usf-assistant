@@ -239,6 +239,8 @@ module.exports.apiai = function(req, res, data) {
 	  	routeGiven = routeContext.parameters;
 	  }
 
+	  console.log(stop);
+
   	if(stop) {
   		request('https://usfbullrunner.com/Stop/' + stop.ID + '/Arrivals?customerID=3', 
 			(error, res1, body) => {
@@ -258,6 +260,9 @@ module.exports.apiai = function(req, res, data) {
 
 						// Use the first (only) route if no route given, otherwise use the given route:
 						var index = (routeGiven) ? bodyJSON.findIndex(route => route.RouteID == routeGiven.ID) : 0;
+						console.log(index);
+						console.log(routeGiven);
+						console.log(bodyJSON);
 
 						var seconds = bodyJSON[index].Arrivals[0].SecondsToArrival;
 						var minutes = Math.floor(seconds / 60);
