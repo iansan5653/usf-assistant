@@ -211,16 +211,17 @@ module.exports.apiai = function(req, res, data) {
   // Input context selected_stop waives the requirement for a stop parameter and uses a previously discussed stop
   function nextBus(app) {
   	var routeContext = app.getContext('selected_route');
-  	var routeArg = app.getArgument('stop');
+  	var routeArg = app.getArgument('route');
   	var stopContext = app.getContext('selected_stop');
+  	var stopArg = app.getArgument('stop');
 
   	// If we provide one route's info and the user explicitly wants them all, give it to them as a followup
   	var showAllContext = app.getContext('show_all');
 
   	var stop = null;
   	// If there's no stop context, then an explicit stop argument is required so stop should never be null
-  	if(app.getArgument('stop')) {
-  		stop = data.stops.find(stop => stop.Name == app.getArgument('stop'));
+  	if(stopArg) {
+  		stop = data.stops.find(stop => stop.Name == stopArg);
   		app.setContext('selected_stop', 3, stop);
   	} else if(stopContext) {
   		stop = stopContext;
