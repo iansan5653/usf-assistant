@@ -206,16 +206,15 @@ module.exports.apiai = function(req, res, data) {
   }
 
   // Next bus(es) at a stop
-  // TODO add selected_stop context for followups
-  // TODO: Add a way to request data for all routes in API.AI
-  // TODO: Add link to hours when no buses servicing
+  // Input context how_all simply indicates that this function was called within the last minute and the user is asking about all routes
+  // Input context selected_route indicated information will only be provided about a previously discussed route
+  // Input context selected_stop waives the requirement for a stop parameter and uses a previously discussed stop
   function nextBus(app) {
   	var routeContext = app.getContext('selected_route');
   	var stopContext = app.getContext('selected_stop');
 
   	// If we provide one route's info and the user explicitly wants them all, give it to them as a followup
   	var showAllContext = app.getContext('show_all');
-  	console.log(showAllContext);
 
   	var stop = null;
   	// If there's no stop context, then an explicit stop argument is required so stop should never be null
@@ -250,7 +249,7 @@ module.exports.apiai = function(req, res, data) {
 							.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
 						app.ask(response);
 
-					} else if((bodyJSON.length === 1 || routeGiven) && !showAllContext) {	
+					} else if(bodyJSON.length === 1 || (routeGiven && !showAllContext)) {	
 						// Use the first (only) route if no route given, otherwise use the given route:
 						var index = (routeGiven) ? bodyJSON.findIndex(route => route.RouteID == routeGiven.ID) : 0;
 
@@ -285,6 +284,7 @@ module.exports.apiai = function(req, res, data) {
 									.addSuggestions(['What about other routes?', 'Are the buses running?', 'Status of this route'])
 									.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');									
 							}
+							app.setContext('show_all');
 						}
 
 						app.ask(response);
@@ -335,16 +335,12 @@ module.exports.apiai = function(req, res, data) {
   	}
   }
 
-  function stopInfo(app) {
-  	var context = app.getContext('selected_stop');
-  }
-
-  var actionMap = new Map();
-  actionMap.set('give_time', nextBus);
-  actionMap.set('overall_status', overallStatus);
-  actionMap.set('closest_stop_permission', closestStopPermission);
-  actionMap.set('closest_stop', closestStop);
-  actionMap.set('stop_info', stopInfo);
+  var actionMap = new Map([
+		['give_time', nextBus],
+		['overall_status', overallStatus],
+		['closest_stop_permission', closestStopPermission],
+		['closest_stop', closestStop]
+  ]);
 
 	app.handleRequest(actionMap);
 };
