@@ -37,7 +37,9 @@ Array.prototype.toSpokenList = function() {
   }
 };
 
-
+Array.prototype.random = function() {
+  return this[Math.floor((Math.random()*this.length))];
+};
 
 var bodyParser = require('body-parser');
 server.use(bodyParser.json()); // support json encoded bodies
