@@ -177,10 +177,10 @@ module.exports.apiai = function(req, res, data) {
   // Get closest stop
   // Follows permission requesting intent
   // Input context request_permission from permission request may include route if user explicitly defined it
-  // Input context selected_route may occur if user asked about a route recently
-  // Output context selected_stop will be set if user explicitly states a stop
-  // Output context selected_stop's timer will be reset if already set and user doesn't state a route
-  // TODO: Fix contexts in API.AI
+  // Input context selected_route may occur if user asked about a route recently, but we ignore it unless explicit
+  // Output context selected_route will be set if user explicitly states a route
+  // Output context selected_route's timer will be reset if already set and user doesn't state a route
+  // Output context selected_stop will be set with closest stop
   function closestStop(app) {
   	// Has to exist:
   	var permissionContext = app.getContext('request_permission');
@@ -188,19 +188,24 @@ module.exports.apiai = function(req, res, data) {
   	// Only exists if a route has been asked about recently, otherwise null:
   	var routeContext = app.getContext('selected_route');
 
+  	// Only exists if the user explicitly asked about all routes
+  	var allRoutes = app.getArgument('all_routes');
+
   	// Only continue if permissions were granted and we could get a location
 		if (app.getDeviceLocation()) {
 		  var deviceCoordinates = app.getDeviceLocation().coordinates;
 
 		  var routeGiven = null;
-		  // Give the permissionContext priority because it has to be more recent and more explicit
-		  if(permissionContext.parameters.route) {
-		  	routeGiven = data.routes.find(route => route.Letter == permissionContext.parameters.route);
-		  	// Set the route context for the future
-		  	app.setContext('selected_route', 3, routeGiven);
-		  } else if(routeContext) {
-		  	routeGiven = routeContext.parameters;
-		  }
+		  // Give the argument priority because it has to be more recent and more explicit
+		  if(!allRoutes) {
+			  if(permissionContext.parameters.route) {
+			  	routeGiven = data.routes.find(route => route.Letter == permissionContext.parameters.route);
+			  	// Set the route context for the future
+			  } else if(routeContext) {
+			  	routeGiven = routeContext.parameters;
+			  }
+			}
+		  app.setContext('selected_route', 3, routeGiven);
 
 		  var closest = data.stops[0];
 		  closest.Distance = getDistance(data.stops[0], deviceCoordinates);
@@ -234,16 +239,17 @@ module.exports.apiai = function(req, res, data) {
 
 		  if(routeGiven) {
 		  	// The closest stop on {Route A} is Stop {222}, {Communication Sciences}.
-		  	response.addSimpleResponse('The closest stop on ' + routeGiven.Name + ' is Stop ' + closest.Number + ', ' + closest.Name + '.');
+		  	response.addSimpleResponse('The closest stop on ' + routeGiven.Name + ' is Stop ' + closest.Number + ', ' + closest.Name + '.')
+		  		.addSuggestions('Include other routes');
 		  } else {
-		  	// The closest stop to your location is Stop {222}, {Communication Sciences}.
-		  	response.addSimpleResponse('The closest stop to your location is Stop ' + closest.Number + ', ' + closest.Name + '.');
+		  	// The closest stop to your location is Stop {222}, {Communication Sciences}, on {Route A}.
+		  	response.addSimpleResponse('OK, the closest stop to your location is Stop ' + closest.Number + ', ' + closest.Name + ', on ' + routeGiven.Name + '.');
 		  }
 
 		  app.ask(response);
 
 		} else {
-			app.ask('Sorry, I couldn\'t get your location, so I couldn\'t find the closest bus stop. Please try again.');
+			app.ask('Sorry, I couldn\'t get your location, so I couldn\'t find the closest bus stop. Please try again, or ask about something else.');
 		}
   }
 
