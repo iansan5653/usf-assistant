@@ -36,7 +36,8 @@ module.exports.apiai = function(req, res, data) {
 	var hasScreen =
     app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
 
-  // Status of the system
+  // Status of the system as a whole
+  // Takes no inputs, sets no contexts
   function overallStatus(app) {
   	request('https://usfbullrunner.com/Stop/95548/Arrivals?customerID=3', (error, res1, body) => {
 
@@ -82,7 +83,28 @@ module.exports.apiai = function(req, res, data) {
 		});
   }
 
+  // Hours of Operation
+  // This info can't be fetched dynamically so we don't provide it because it would be outdated
+  // Takes no inputs, sets no contexts
+  function hoursOperation(app) {
+  	var response = app.buildRichResponse()
+  		.addSimpleResponse('Because the Bull Runner\'s hours change seasonally, I can\'t provide them. ' +
+  			'However, the current hours are available on the USF transportation website. ' +
+  			'Also, I can tell you which routes are currently operating - just ask!')
+  		.addBasicCard(
+  			app.buildBasicCard('USF Bull Runner - Hours of Operation')
+					.addButton('View Hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
+			)
+			.addSuggestions(['What routes are active?', 'Is Route A active?']);
+
+		app.ask(response);
+  }
+
   // Status of a route
+  // Input context selected_route will be used if the user triggers and doesn't explicitly state a route
+  // Output context selected_route will be set if the user explicitly states a route
+  // Output context selected_route's timer will be reset if user triggers and doesn't state a route
+  // Output context -followup used for getting the route name if not provided
   function routeStatus(app) {
   	var routeArg = app.getArgument('route');
   	var routeContext = app.getContext('selected_route');
@@ -91,39 +113,59 @@ module.exports.apiai = function(req, res, data) {
   	// If a route context exists, use it if no route is explictly provided
   	// If a route is explicitly provided, use it and set the context
   	if(routeArg) {
-	  	route = data.routes.find(route => route.Letter == routeArg);
-	  	app.setContext('selected_route', 3, route);
+	  	route = data.routes.find(routeObject => routeObject.Letter == routeArg);
 	  } else if(routeContext) {
 	  	route = routeContext.parameters;
 	  }
 
-  	request('https://usfbullrunner.com/Route/' + route.ID + '/Vehicles', (error, res1, body) => {
+	  // Either set the context or reset timer if already set
+	  app.setContext('selected_route', 3, route);
 
-  		activeBuses = JSON.parse(body);
+	  if(route) {
+	  	request('https://usfbullrunner.com/Route/' + route.ID + '/Vehicles', (error, res1, body) => {
 
-			if (!error && res1.statusCode == 200) {
-				if(activeBuses.length === 0) {
-					app.ask(app.buildRichResponse()
-  					.addSimpleResponse('There are not currently any buses on ' + route.Name + '. Try checking the USF Bull Runner hours of operation.')
-  					.addSuggestionLink('hours of operation', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
-  					.addSuggestions(['Are any buses running?'])
-  				);
+	  		activeBuses = JSON.parse(body);
 
-				} else {
-					var plural = (activeBuses.length == 1) ? '' : 'es';
+				if (!error && res1.statusCode == 200) {
+					if(activeBuses.length === 0) {
+						app.ask(app.buildRichResponse()
+	  					.addSimpleResponse('There are not currently any buses on ' + route.Name + '. Try checking the USF Bull Runner hours of operation.')
+	  					.addSuggestionLink('hours of operation', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
+	  					.addSuggestions(['Are any buses running?'])
+	  				);
 
-					var response = app.buildRichResponse()
-						// {Route A} is currently active, with {3} bus{es} operating.
-  					.addSimpleResponse(route.Name + ' is currently active, with ' + activeBuses.length + ' bus' + plural + ' operating.')
-  					.addSuggestions(['What is the closest stop?']);
-  				
-  				app.ask(response);
-				}
+					} else {
+						var plural = (activeBuses.length == 1) ? '' : 'es';
 
-  		} else {
-  			app.tell('Sorry, there was an error retrieving information from the Bull Runner. Please try again later.');
-  		}
-		});
+						var response = app.buildRichResponse()
+							// {Route A} is currently active, with {3} bus{es} operating.
+	  					.addSimpleResponse(route.Name + ' is currently active, with ' + activeBuses.length + ' bus' + plural + ' operating.')
+	  					.addSuggestions(['What is the closest stop?']);
+	  				
+	  				app.ask(response);
+					}
+
+	  		} else {
+	  			app.tell('Sorry, there was an error retrieving information from the Bull Runner. Please try again later.');
+	  		}
+			});
+
+	  } else {
+	  	routeLetters = [];
+	  	data.routes.forEach(routeObject => routeLetters.push(routeObject.Letter));
+
+	  	var response = app.buildRichResponse()
+	  		.addSimpleResponse(
+	  			'I can\'t tell which route you would like information about. Available options are: ' +
+	  			routeLetters.toSpokenList() +
+	  			'. Which one would you like to know about?'
+	  		)
+	  		.addSuggestionLink()
+	  		.addSuggestions(['Overall system status'])
+	  		.addSuggestionLink('routes map', 'http://www.usfbullrunner.com');
+
+	  	app.ask(response);
+	  }
   }
 
   // Get permission to access user location to find closest stop
@@ -346,8 +388,10 @@ module.exports.apiai = function(req, res, data) {
   var actionMap = new Map([
 		['give_time', nextBus],
 		['overall_status', overallStatus],
+		['route_status', routeStatus],
 		['closest_stop_permission', closestStopPermission],
-		['closest_stop', closestStop]
+		['closest_stop', closestStop],
+		['hours_operation', hoursOperation]
   ]);
 
 	app.handleRequest(actionMap);
