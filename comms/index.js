@@ -33,8 +33,6 @@ function getNavURL(targetLoc) {
 
 module.exports.apiai = function(req, res, data) {
 	var app = new ApiAiApp({request: req, response: res});
-	var hasScreen =
-    app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
 
   // Status of the system as a whole
   // Takes no inputs, sets no contexts
@@ -46,7 +44,8 @@ module.exports.apiai = function(req, res, data) {
   		if (!error && res1.statusCode == 200) {
   			if(bodyJSON.length === 0) {
   				app.tell(app.buildRichResponse()
-  					.addSimpleResponse('There are not currently any buses running. Please check the USF Bull Runner hours of operation.')
+  					.addSimpleResponse('There aren\'t any active routes right now.' +
+  						'Please check the USF Bull Runner hours of operation, and remember that the hours change seasonally.')
   					.addBasicCard(app.buildBasicCard('USF Bull Runner - Hours of Operation')
   						.addButton('View Hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
   					)
@@ -66,19 +65,14 @@ module.exports.apiai = function(req, res, data) {
   				//The Bull Runner is currently operating. Route{s} {A, B, and C} {are} active.
   				var response = app.buildRichResponse()
   					.addSimpleResponse('The Bull Runner is currently operating. Route' + 
-  						plural.lttr + ' ' + activeRoutes.toSpokenList() + ' ' + plural.word + ' active.');
+  						plural.lttr + ' ' + activeRoutes.toSpokenList() + ' ' + plural.word + ' active.')
+  					.addSuggestionLink('live map', 'http://www.usfbullrunner.com')
+  					.addSuggestions(['More info about Route ' + activeRoutes[0], 'What is the closest stop?']);
 
-  				if(hasScreen) {
-  					response.addSimpleResponse('Check out this link for a live map:')
-  						.addBasicCard(app.buildBasicCard('USF Bull Runner - Live Map')
-	  						.addButton('View Map', 'http://www.usfbullrunner.com')
-	  					);
-  				}
-
-  				app.tell(response);
+  				app.ask(response);
   			}
   		} else {
-  			app.tell('Sorry, there was an error retrieving information from the Bull Runner.');
+  			app.tell('Sorry, there was an error retrieving information from the Bull Runner. Please try again later.');
   		}
 		});
   }
@@ -101,9 +95,9 @@ module.exports.apiai = function(req, res, data) {
   }
 
   // Status of a route
-  // Input context selected_route will be used if the user triggers and doesn't explicitly state a route
+  // Input context selected_route will be used if the doesn't explicitly state a route
   // Output context selected_route will be set if the user explicitly states a route
-  // Output context selected_route's timer will be reset if user triggers and doesn't state a route
+  // Output context selected_route's timer will be reset if already set and user doesn't state a route
   // Output context -followup used for getting the route name if not provided
   function routeStatus(app) {
   	var routeArg = app.getArgument('route');
@@ -129,7 +123,7 @@ module.exports.apiai = function(req, res, data) {
 				if (!error && res1.statusCode == 200) {
 					if(activeBuses.length === 0) {
 						app.ask(app.buildRichResponse()
-	  					.addSimpleResponse('There are not currently any buses on ' + route.Name + '. Try checking the USF Bull Runner hours of operation.')
+	  					.addSimpleResponse('There aren\'t any buses on ' + route.Name + ' right now. Try checking the USF Bull Runner hours of operation.')
 	  					.addSuggestionLink('hours of operation', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
 	  					.addSuggestions(['Are any buses running?'])
 	  				);
@@ -154,22 +148,28 @@ module.exports.apiai = function(req, res, data) {
 	  	routeLetters = [];
 	  	data.routes.forEach(routeObject => routeLetters.push(routeObject.Letter));
 
+	  	var suggestions = ['Overall system status'];
+	  	if (routeLetters.length == 8) {
+	  		suggestions = routeLetters;
+	  	} else if (routeLetters.length <= 7) {
+	  		suggestions = routeLetters.concat(['Overall system status']);
+	  	}
+
 	  	var response = app.buildRichResponse()
 	  		.addSimpleResponse(
 	  			'I can\'t tell which route you would like information about. Available options are: ' +
 	  			routeLetters.toSpokenList() +
 	  			'. Which one would you like to know about?'
 	  		)
-	  		.addSuggestionLink()
-	  		.addSuggestions(['Overall system status'])
-	  		.addSuggestionLink('routes map', 'http://www.usfbullrunner.com');
+	  		.addSuggestions(suggestions)
+	  		.addSuggestionLink('route map', 'http://www.usfbullrunner.com');
 
 	  	app.ask(response);
 	  }
   }
 
   // Get permission to access user location to find closest stop
-  // Output context possibly includes route
+  // Output context request_permission possibly includes route parameter
   function closestStopPermission(app) {
   	app.askForPermission('To find stops near your location', app.SupportedPermissions.DEVICE_PRECISE_LOCATION);
   }
@@ -177,8 +177,9 @@ module.exports.apiai = function(req, res, data) {
   // Get closest stop
   // Follows permission requesting intent
   // Input context request_permission from permission request may include route if user explicitly defined it
-  // Input context selected_route may occur if user explicitly asked about a route recently
-  // Input context selected_stop is disregarded because we want the closest one (but it is set by this)
+  // Input context selected_route may occur if user asked about a route recently
+  // Output context selected_stop will be set if user explicitly states a stop
+  // Output context selected_stop's timer will be reset if already set and user doesn't state a route
   // TODO: Fix contexts in API.AI
   function closestStop(app) {
   	// Has to exist:
@@ -258,7 +259,7 @@ module.exports.apiai = function(req, res, data) {
   	var stopArg = app.getArgument('stop');
 
   	// If we provide one route's info and the user explicitly wants them all, give it to them as a followup
-  	var showAllContext = app.getContext('show_all');
+  	var showAll = app.getArgument('show_all');
 
   	var stop = null;
   	// If there's no stop context, then an explicit stop argument is required so stop should never be null
@@ -289,11 +290,11 @@ module.exports.apiai = function(req, res, data) {
 					if (bodyJSON.length === 0) {
 						let response = app.buildRichResponse()
 							.addSimpleResponse('There aren\'t any buses servicing ' + stop.Name + ' (Stop ' + stop.Number + ') right now. Please ensure that that route is currently operating.')
-							.addSuggestions('Are the buses running?')
+							.addSuggestions(['Are the buses running?'])
 							.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
 						app.ask(response);
 
-					} else if(bodyJSON.length === 1 || (routeArg) || (routeContext && !showAllContext)) {	
+					} else if(bodyJSON.length === 1 || (routeArg) || (routeContext && !showAll)) {	
 						// If only one route is servicing the stop, or if there is a route given, or if there is a route context and NOT a show all context
 
 						// Use the first (only) route if no route given, otherwise use the given route:
@@ -334,7 +335,6 @@ module.exports.apiai = function(req, res, data) {
 									.addSuggestions(['What about other routes?', 'Are the buses running?', 'Status of this route'])
 									.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');									
 							}
-							app.setContext('show_all', 1);
 						}
 
 						app.ask(response);
@@ -379,10 +379,29 @@ module.exports.apiai = function(req, res, data) {
 
   	} else {
   		let response = app.buildRichResponse()
-  			.addSimpleResponse('Sorry, I couldn\'t find the stop you requested. It may help to refer to the stop by its number rather than its name.')
-  			.addSuggestions(['What is the closest stop?', 'Are the buses running?']);
+  			.addSimpleResponse('I can\'t tell which stop you would like information about. It may help to refer to the stop by its number rather than its name.')
+  			.addSuggestions(['What is the closest stop?', 'Are any buses running?', 'Stop ' + data.stops.random().Number]);
   		app.ask(response);
   	}
+  }
+
+  function fallback(app) {
+  	var hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
+  	var simpleResponse = 'Sorry, I don\'t understand. Try asking about the status of the system, a specific stop, or a specific route.';
+  	if(hasScreen) {
+  		simpleResponse += ' You can also ask for the closest stop to your location.';
+  	}
+
+  	var response = app.buildRichResponse()
+  		.addSimpleResponse(simpleResponse)
+  		.addSuggestions([
+  			'Are any buses running?',
+  			'Status of Route ' + data.routes.random().Letter,
+  			'Next buses at ' + data.stops.random().Name,
+  			'What is the closest stop?'
+  		]);
+
+  	app.ask(response);
   }
 
   var actionMap = new Map([
@@ -391,7 +410,8 @@ module.exports.apiai = function(req, res, data) {
 		['route_status', routeStatus],
 		['closest_stop_permission', closestStopPermission],
 		['closest_stop', closestStop],
-		['hours_operation', hoursOperation]
+		['hours_operation', hoursOperation],
+		['fallback', fallback]
   ]);
 
 	app.handleRequest(actionMap);
