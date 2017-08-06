@@ -196,25 +196,25 @@ module.exports.apiai = function(req, res, data) {
 		if (app.getDeviceLocation()) {
 		  var deviceCoordinates = app.getDeviceLocation().coordinates;
 
-		  var routeGiven = null;
+		  var route = null;
 		  // Give the argument priority because it has to be more recent and more explicit
 		  if(!allRoutes) {
 			  if(permissionContext.parameters.route) {
-			  	routeGiven = data.routes.find(route => route.Letter == permissionContext.parameters.route);
+			  	route = data.routes.find(routeObject => routeObject.Letter == permissionContext.parameters.route);
 			  	// Set the route context for the future
 			  } else if(routeContext) {
-			  	routeGiven = routeContext.parameters;
+			  	route = routeContext.parameters;
 			  }
 			}
-		  app.setContext('selected_route', 3, routeGiven);
+		  app.setContext('selected_route', 3, route);
 
 		  var closest = data.stops[0];
 		  closest.Distance = getDistance(data.stops[0], deviceCoordinates);
 
 		  data.stops.forEach(stop => {
 		  	// If a route is specified, we want to avoid that math for stops on other routes
-		  	if(routeGiven) {
-		  		if(stop.Routes.includes(routeGiven.ID)) {
+		  	if(route) {
+		  		if(stop.Routes.includes(route.ID)) {
 		  			let distance = getDistance(stop, deviceCoordinates);
 		  			if(distance < closest.Distance) {
 		  				closest = stop;
@@ -238,13 +238,13 @@ module.exports.apiai = function(req, res, data) {
 		  	.addSuggestions('When is the next bus?')
 		  	.addSuggestionLink('nagivation', getNavURL(closest));
 
-		  if(routeGiven) {
+		  if(route) {
 		  	// The closest stop on {Route A} is Stop {222}, {Communication Sciences}.
-		  	response.addSimpleResponse('The closest stop on ' + routeGiven.Name + ' is Stop ' + closest.Number + ', ' + closest.Name + '.')
+		  	response.addSimpleResponse('The closest stop on ' + route.Name + ' is Stop ' + closest.Number + ', ' + closest.Name + '.')
 		  		.addSuggestions('Include other routes');
 		  } else {
 		  	// The closest stop to your location is Stop {222}, {Communication Sciences}, on {Route A}.
-		  	response.addSimpleResponse('OK, the closest stop to your location is Stop ' + closest.Number + ', ' + closest.Name + ', on ' + routeGiven.Name + '.');
+		  	response.addSimpleResponse('OK, the closest stop to your location is Stop ' + closest.Number + ', ' + closest.Name + ', on ' + route.Name + '.');
 		  }
 
 		  app.ask(response);
@@ -271,20 +271,20 @@ module.exports.apiai = function(req, res, data) {
   	var stop = null;
   	// If there's no stop context, then an explicit stop argument is required so stop should never be null
   	if(stopArg) {
-  		stop = data.stops.find(stop => stop.Name == stopArg);
+  		stop = data.stops.find(stopObject => stopObject.Name == stopArg);
   		app.setContext('selected_stop', 3, stop);
   	} else if(stopContext) {
   		stop = stopContext.parameters;
   	}
 
-  	var routeGiven = null;
+  	var route = null;
   	// If a route context exists, use it if no route is explictly provided
   	// If a route is explicitly provided, use it and set the context
   	if(routeArg) {
-	  	routeGiven = data.routes.find(route => route.Letter == routeArg);
-	  	app.setContext('selected_route', 3, routeGiven);
+	  	route = data.routes.find(routeObject => routeObject.Letter == routeArg);
+	  	app.setContext('selected_route', 3, route);
 	  } else if(routeContext) {
-	  	routeGiven = routeContext.parameters;
+	  	route = routeContext.parameters;
 	  }
 
   	if(stop) {
@@ -305,7 +305,9 @@ module.exports.apiai = function(req, res, data) {
 						// If only one route is servicing the stop, or if there is a route given, or if there is a route context and NOT a show all context
 
 						// Use the first (only) route if no route given, otherwise use the given route:
-						var index = (routeGiven) ? bodyJSON.findIndex(route => route.RouteID == routeGiven.ID) : 0;
+						var index = (route) ? bodyJSON.findIndex(routeObject => routeObject.RouteID == route.ID) : 0;
+						console.log(index);
+						console.log(bodyJSON[index]);
 
 						var seconds = bodyJSON[index].Arrivals[0].SecondsToArrival;
 						var minutes = Math.floor(seconds / 60);
@@ -321,17 +323,17 @@ module.exports.apiai = function(req, res, data) {
 
 						var plural = (minutes == 1) ? '' : 's'; // If multiple minutes, use plural units
 
-						var routeName = data.routes.find(route => route.ID == bodyJSON[index].RouteID).Name;
+						var routeName = data.routes.find(routeObject => routeObject.ID == bodyJSON[index].RouteID).Name;
 
 						let response = app.buildRichResponse();
 
-						if(!routeGiven) {
+						if(!route) {
 							// THe next bus will arrive on {Route A} in {10} minute{s}.
 							response.addSimpleResponse('The next bus will arrive on ' + routeName + ' in ' + minutes + ' minute' + plural + '.')
 								.addSuggestionLink('navigation', getNavURL(stop))
 								.addSuggestions(['Status of this route']);
 						} else {
-							if(routeName == routeGiven.Name) {
+							if(routeName == route.Name) {
 								// The next bus on {Route A} will arrive at {Communication Sciences} ({Stop 222}) in {10} minute{s}.
 								response.addSimpleResponse('The next bus on ' + routeName + ' will arrive at ' + stop.Name + ' (Stop ' + stop.Number + ') in ' + minutes + ' minute' + plural + '.')
 									.addSuggestionLink('navigation', getNavURL(stop))
@@ -362,7 +364,7 @@ module.exports.apiai = function(req, res, data) {
 
 							var plural = (minutes == 1) ? '' : 's'; // If multiple minutes, use plural units
 
-							var routeName = data.routes.find(route => route.ID == stopRoute.RouteID).Name;
+							var routeName = data.routes.find(routeObject => routeObject.ID == stopRoute.RouteID).Name;
 
 							strings.push('On ' + routeName + ', the next bus will arrive in ' + minutes + ' minute' + plural + '.');
 						});
