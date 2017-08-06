@@ -378,8 +378,8 @@ module.exports.apiai = function(req, res, data) {
 
 					}
 
-					app.ask(reponse);
-
+					app.ask(response);
+					
 				} else {
 					app.tell('Sorry, there was an error retrieving information from the Bull Runner. Please try again later.');
 				}
