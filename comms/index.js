@@ -287,6 +287,8 @@ module.exports.apiai = function(req, res, data) {
 	  	route = routeContext.parameters;
 	  }
 
+	  var response = app.buildRichResponse();
+
   	if(stop) {
   		request('https://usfbullrunner.com/Stop/' + stop.ID + '/Arrivals?customerID=3', 
 			(error, res1, body) => {
@@ -295,7 +297,7 @@ module.exports.apiai = function(req, res, data) {
 
 				if (!error && res1.statusCode == 200) {
 					if (bodyJSON.length === 0) {
-						let response = app.buildRichResponse()
+						response
 							.addSimpleResponse('There aren\'t any buses servicing ' + stop.Name + ' (Stop ' + stop.Number + ') right now. Please ensure that that route is currently operating.')
 							.addSuggestions(['Are the buses running?'])
 							.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
@@ -306,47 +308,44 @@ module.exports.apiai = function(req, res, data) {
 
 						// Use the first (only) route if no route given, otherwise use the given route:
 						var index = (route) ? bodyJSON.findIndex(routeObject => routeObject.RouteID == route.ID) : 0;
-						console.log(index);
-						console.log(bodyJSON[index]);
 
-						var seconds = bodyJSON[index].Arrivals[0].SecondsToArrival;
-						var minutes = Math.floor(seconds / 60);
-						
-						// Sometimes, if a bus is already there the minutes will be 0 or negative. In that case we use the next bus if there is one.
-						if (minutes < 1 && bodyJSON[index].Arrivals.length > 1) {
-							seconds = bodyJSON[index].Arrivals[1].SecondsToArrival;
-							minutes = Math.floor(seconds / 60);
-						} else if (minutes < 0) {
-							// Even if there are no other buses on the route, it never makes since to say a bus will arrive in -N minutes
-							minutes = 0;
-						}
+						var routeName = data.routes.find(routeObject => routeObject.ID == route.ID).Name;
 
-						var plural = (minutes == 1) ? '' : 's'; // If multiple minutes, use plural units
+						if(index != -1) {
+							var seconds = bodyJSON[index].Arrivals[0].SecondsToArrival;
+							var minutes = Math.floor(seconds / 60);
+							
+							// Sometimes, if a bus is already there the minutes will be 0 or negative. In that case we use the next bus if there is one.
+							if (minutes < 1 && bodyJSON[index].Arrivals.length > 1) {
+								seconds = bodyJSON[index].Arrivals[1].SecondsToArrival;
+								minutes = Math.floor(seconds / 60);
+							} else if (minutes < 0) {
+								// Even if there are no other buses on the route, it never makes since to say a bus will arrive in -N minutes
+								minutes = 0;
+							}
 
-						var routeName = data.routes.find(routeObject => routeObject.ID == bodyJSON[index].RouteID).Name;
+							var plural = (minutes == 1) ? '' : 's'; // If multiple minutes, use plural units
 
-						let response = app.buildRichResponse();
-
-						if(!route) {
-							// THe next bus will arrive on {Route A} in {10} minute{s}.
-							response.addSimpleResponse('The next bus will arrive on ' + routeName + ' in ' + minutes + ' minute' + plural + '.')
-								.addSuggestionLink('navigation', getNavURL(stop))
-								.addSuggestions(['Status of this route']);
-						} else {
-							if(routeName == route.Name) {
+							if(!route) {
+								// THe next bus will arrive on {Route A} in {10} minute{s}.
+								response.addSimpleResponse('The next bus will arrive on ' + routeName + ' in ' + minutes + ' minute' + plural + '.')
+									.addSuggestionLink('navigation', getNavURL(stop))
+									.addSuggestions(['Status of this route']);
+							} else {
+								// This phrasing makes it clear that this is more specific
 								// The next bus on {Route A} will arrive at {Communication Sciences} ({Stop 222}) in {10} minute{s}.
 								response.addSimpleResponse('The next bus on ' + routeName + ' will arrive at ' + stop.Name + ' (Stop ' + stop.Number + ') in ' + minutes + ' minute' + plural + '.')
 									.addSuggestionLink('navigation', getNavURL(stop))
 									.addSuggestions(['What about other routes?', 'Status of this route']);
-							} else {
-								// {Route A} isn't currently servicing {Communication Sciences} ({Stop 222}). Please ensure that that route connects with this stop and that both are currently operating.
-								response.addSimpleResponse(routeName + ' isn\'t currently servicing' + stop.Name + ' (Stop ' + stop.Number + '). Please ensure that that route connects with this stop and that both are currently operating.')
-									.addSuggestions(['What about other routes?', 'Are the buses running?', 'Status of this route'])
-									.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');									
 							}
-						}
 
-						app.ask(response);
+						} else {
+							response.addSimpleResponse();
+							// {Route A} isn't currently servicing {Communication Sciences} ({Stop 222}). Please ensure that that route connects with this stop and that both are currently operating.
+							response.addSimpleResponse(routeName + ' isn\'t currently servicing' + stop.Name + ' (Stop ' + stop.Number + '). Please ensure that that route connects with this stop and that both are currently operating.')
+								.addSuggestions(['What about other routes?', 'Are the buses running?', 'Status of this route'])
+								.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
+						}
 
 					} else {
 						var strings = ['There are ' + bodyJSON.length + ' routes serving this stop right now.'];
@@ -374,12 +373,12 @@ module.exports.apiai = function(req, res, data) {
 							strings[strings.length - 1] = strings[strings.length - 1].replace(/^\S+/g, 'Finally, on');
 						}
 
-						let response = app.buildRichResponse()
-							.addSimpleResponse(strings.join(' '))
+						response.addSimpleResponse(strings.join(' '))
 							.addSuggestionLink('navigation', getNavURL(stop));
 
-						app.ask(response);
 					}
+
+					app.ask(reponse);
 
 				} else {
 					app.tell('Sorry, there was an error retrieving information from the Bull Runner. Please try again later.');
