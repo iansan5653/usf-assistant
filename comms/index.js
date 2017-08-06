@@ -155,6 +155,7 @@ module.exports.apiai = function(req, res, data) {
 	  		suggestions = routeLetters.concat(['Overall system status']);
 	  	}
 
+
 	  	var response = app.buildRichResponse()
 	  		.addSimpleResponse(
 	  			'I can\'t tell which route you would like information about. Available options are: ' +
@@ -411,12 +412,12 @@ module.exports.apiai = function(req, res, data) {
   }
 
   var actionMap = new Map([
-		['give_time', nextBus],
+		['next_bus', nextBus],
 		['overall_status', overallStatus],
 		['route_status', routeStatus],
 		['closest_stop_permission', closestStopPermission],
 		['closest_stop', closestStop],
-		['hours_operation', hoursOperation],
+		['hours', hoursOperation],
 		['fallback', fallback]
   ]);
 
