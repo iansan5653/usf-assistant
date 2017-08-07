@@ -62,10 +62,10 @@ module.exports.apiai = function(req, res, data) {
   				// If multiple active routes, use plural
   				var plural = (activeRoutes.length == 1) ? {lttr: '', word: 'is'} : {lttr: 's', word: 'are'};
 
-  				//The Bull Runner is currently operating. Route{s} {A, B, and C} {are} active.
+  				//The Bull Runner is currently operating on route{s} {A, B, and C}.
   				var response = app.buildRichResponse()
-  					.addSimpleResponse('The Bull Runner is currently operating. Route' + 
-  						plural.lttr + ' ' + activeRoutes.toSpokenList() + ' ' + plural.word + ' active.')
+  					.addSimpleResponse('The Bull Runner is currently operating on route' +
+  						plural.lttr + ' ' + activeRoutes.toSpokenList() + '.')
   					.addSuggestionLink('live map', 'http://www.usfbullrunner.com')
   					.addSuggestions(['More info about Route ' + activeRoutes[0], 'What is the closest stop?']);
 
@@ -123,7 +123,7 @@ module.exports.apiai = function(req, res, data) {
 				if (!error && res1.statusCode == 200) {
 					if(activeBuses.length === 0) {
 						app.ask(app.buildRichResponse()
-	  					.addSimpleResponse('There aren\'t any buses on ' + route.Name + ' right now. Try checking the USF Bull Runner hours of operation.')
+	  					.addSimpleResponse(route.Name + ' isn\'t active right now. Try checking the USF Bull Runner hours of operation to see when it will be.')
 	  					.addSuggestionLink('hours of operation', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
 	  					.addSuggestions(['Are any buses running?'])
 	  				);
@@ -239,12 +239,26 @@ module.exports.apiai = function(req, res, data) {
 		  	.addSuggestionLink('nagivation', getNavURL(closest));
 
 		  if(route) {
-		  	// The closest stop on {Route A} is Stop {222}, {Communication Sciences}.
-		  	response.addSimpleResponse('The closest stop on ' + route.Name + ' is Stop ' + closest.Number + ', ' + closest.Name + '.')
+		  	// The closest stop on {Route A} is {Communication Sciences} (Stop {222}).
+		  	response.addSimpleResponse('The closest stop on ' + route.Name + ' is ' + closest.Name + ' (Stop ' + closest.Number + ').')
 		  		.addSuggestions('Include other routes');
 		  } else {
-		  	// The closest stop to your location is Stop {222}, {Communication Sciences}, on {Route A}.
-		  	response.addSimpleResponse('OK, the closest stop to your location is Stop ' + closest.Number + ', ' + closest.Name + ', on ' + route.Name + '.');
+		  	// The closest stop to your location is {Communication Sciences} (Stop {222})
+		  	var stopInfoResponse = 'OK, the closest stop to your location is ' + closest.Name + ' (Stop ' + closest.Number + ')';
+
+		  	var routeLetters = [];
+		  	closest.Routes.forEach(routeNumber => {
+		  		routeLetter = data.routes.find(routeObject => routeObject.ID == routeNumber).Letter;
+		  		routeLetters.push(routeLetter);
+		  	});
+
+		  	if (routeLetters.length == 1) {
+		  		// <stopInfoResponse>, on Route {A}.
+		  		response.addSimpleResponse(stopInfoResponse + ', on Route ' + routeLetters[0] + '.');
+		  	} else {
+		  		// <stopInfoResponse>, which connects Routes {A, B, and C}.
+		  		response.addSimpleResponse(stopInfoResponse + ', which connects Routes ' + routeLetters.toSpokenList() + '.');
+		  	}
 		  }
 
 		  app.ask(response);
@@ -255,7 +269,7 @@ module.exports.apiai = function(req, res, data) {
   }
 
   // Next bus(es) at a stop
-  // Input context how_all simply indicates that this function was called within the last minute and the user is asking about all routes
+  // Input context show_all simply indicates that this function was called within the last minute and the user is asking about all routes
   // Input context selected_route indicated information will only be provided about a previously discussed route
   // Input context selected_stop waives the requirement for a stop parameter and uses a previously discussed stop
   function nextBus(app) {
@@ -303,6 +317,13 @@ module.exports.apiai = function(req, res, data) {
 							.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
 						app.ask(response);
 
+					} else if(bodyJSON.length === 1 && showAll) {
+						var routeName = data.routes.find(routeObject => routeObject.ID == route.ID).Name;
+
+						// {Route A} is the only route that connects with that stop.
+						response.addSimpleResponse(routeName + ' is the only route that connects with that stop.')
+							.addSuggestions(['Status of this route']);
+
 					} else if(bodyJSON.length === 1 || (routeArg) || (routeContext && !showAll)) {	
 						// If only one route is servicing the stop, or if there is a route given, or if there is a route context and NOT a show all context
 
@@ -340,9 +361,8 @@ module.exports.apiai = function(req, res, data) {
 							}
 
 						} else {
-							response.addSimpleResponse();
-							// {Route A} isn't currently servicing {Communication Sciences} ({Stop 222}). Please ensure that that route connects with this stop and that both are currently operating.
-							response.addSimpleResponse(routeName + ' isn\'t currently servicing' + stop.Name + ' (Stop ' + stop.Number + '). Please ensure that that route connects with this stop and that both are currently operating.')
+							// {Route A} isn't currently servicing {Communication Sciences} ({Stop 222}). This is probably because the route isn't active or doesn't connect to that stop.
+							response.addSimpleResponse(routeName + ' isn\'t currently servicing ' + stop.Name + ' (Stop ' + stop.Number + '). This is probably because the route isn\'t active or doesn\'t connect to this stop.')
 								.addSuggestions(['What about other routes?', 'Are the buses running?', 'Status of this route'])
 								.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
 						}
@@ -379,7 +399,7 @@ module.exports.apiai = function(req, res, data) {
 					}
 
 					app.ask(response);
-					
+
 				} else {
 					app.tell('Sorry, there was an error retrieving information from the Bull Runner. Please try again later.');
 				}

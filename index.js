@@ -62,8 +62,7 @@ server.get('/update-entity', (req, res) => {
 
 server.get('/update-cache', (req, res) => {
 	var updateType = req.query.type;
-	console.log('Test message');
-
+	
 	if(updateType == 'routes') {
 		cache.update.routes();
 		res.end('File probably updated.'); //TODO
