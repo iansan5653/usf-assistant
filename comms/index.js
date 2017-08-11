@@ -209,6 +209,7 @@ module.exports.apiai = function(req, res, data) {
 		  app.setContext('selected_route', 3, route);
 
 		  var closest = data.stops[0];
+		  console.log(closest);
 		  closest.Distance = getDistance(data.stops[0], deviceCoordinates);
 
 		  data.stops.forEach(stop => {
