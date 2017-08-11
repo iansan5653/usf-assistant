@@ -39,48 +39,48 @@ module.exports.update.routes = function() {
 module.exports.update.stops = function() {
 	var stopsRaw = [];
 
-	// Fetch routes from the server
-	for (var i = 0; i < routes.length; i++) {
-		// Loop through every route and collect all stops
-		request('https://usfbullrunner.com/Route/' + routes[i].ID + '/Direction/0/Stops',
-		(error, response, body) => {
-			// TODO add error handling
-			var routeObject = {
-				'ID': routes[i].ID,
-				'Data': JSON.parse(body)
-			};
-			stopsRaw.push(routeObject);
-		});
-	}
-
-	// Now we have an array of every route, with each route object containing the stop data
-	var stopsNew = [];
-	stopsRaw.forEach(route => {
-		route.Data.forEach(stops => {
-			var stopDuplicateIndex = stopsNew.findIndex(stopDuplicate => stop.ID == stopDuplicate.ID);
-
-			if(stopDuplicateIndex == -1) {
-				// Stop is not yet in the data
-				var stopObject = {
-					'Name': stop.Name,
-					'ID': stop.ID,
-					'Number': stop.RtpiNumber,
-					'Latitude': stop.Latitude,
-					'Longitude': stop.Longitude,
-					'Routes': [stops.ID]
+	function getRouteFile(num = 0) {
+		if(num < routes.length) {
+			request('https://usfbullrunner.com/Route/' + routes[num].ID + '/Direction/0/Stops',
+			(error, response, body) => {
+				// TODO add error handling
+				var routeObject = {
+					'ID': routes[num].ID,
+					'Data': JSON.parse(body)
 				};
-				stopsNew.push(stopObject);
-			} else {
-				// Stop is already in the data; we just need the route ID to be added
-				stopsNew[stopDuplicateIndex].Routes.push(stops.ID);
-			}
-		});
-	});
+				stopsRaw.push(routeObject);
+				console.log(num);
+				num++;
+				// Recursive callback:
+				getRouteFile(num);
+			});
+		} else {
+			var stopsNew = [];
+			stopsRaw.forEach(stops => {
+				stops.Data.forEach(stop => {
+					var stopDuplicateIndex = stopsNew.findIndex(stopDuplicate => stop.ID == stopDuplicate.ID);
 
-	// Write data to file
-	fs.writeFile('./cache/stops.json', 
-	JSON.stringify(stopsNew, null, 2), err => {
-		if (err) return console.log('File update failed:' + err);
-	});
-	stops = module.exports.data.routes = stopsNew;
+					if(stopDuplicateIndex == -1) {
+						var stopObject = {
+							'Name': stop.Name,
+							'ID': stop.ID,
+							'Number': stop.RtpiNumber,
+							'Latitude': stop.Latitude,
+							'Longitude': stop.Longitude,
+							'Routes': [stops.ID]
+						};
+						stopsNew.push(stopObject);
+					} else {
+						stopsNew[stopDuplicateIndex].Routes.push(stops.ID);
+					}
+				});
+			});
+			fs.writeFile('./cache/stops.json', 
+			JSON.stringify(stopsNew, null, 2), err => {
+				if (err) return console.log('File update failed:' + err);
+			});
+			stops = module.exports.data.routes = stopsNew;
+		}
+	}
+	getRouteFile();
 };
