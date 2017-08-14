@@ -183,14 +183,11 @@ module.exports.apiai = function(req, res, data) {
   // Output context selected_route's timer will be reset if already set and user doesn't state a route
   // Output context selected_stop will be set with closest stop
   function closestStop(app) {
-  	// Has to exist:
-  	var permissionContext = app.getContext('request_permission');
+  	var permissionContext = app.getContext('request_permission'),
+  			routeContext = app.getContext('selected_route'),
+  			allRoutes = app.getArgument('all_routes');
 
-  	// Only exists if a route has been asked about recently, otherwise null:
-  	var routeContext = app.getContext('selected_route');
-
-  	// Only exists if the user explicitly asked about all routes
-  	var allRoutes = app.getArgument('all_routes');
+  	console.log(permissionContext.parameters);
 
   	// Only continue if permissions were granted and we could get a location
 		if (app.getDeviceLocation()) {
@@ -384,6 +381,7 @@ module.exports.apiai = function(req, res, data) {
 								// because contexts can be safely ignored if they are apparently incorrect
 
 								// Overwrite route, since there's only one possible route
+								// NOT WORKING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 								if(routes.length == 1) route = data.routes.find(routeObject => routes[0].routeID == routeObject.ID);
 								app.setContext('selected_route', 3, route);
 
@@ -403,7 +401,7 @@ module.exports.apiai = function(req, res, data) {
 
 
 								if(showAll) {
-									response.addSimpleResponse('The only route servicing this stop right now is ' + route.Name + '. The next bus on this route will arrive in ' + time + ' minute' + time.s + '.')
+									response.addSimpleResponse('The only route servicing this stop right now is ' + route.Name + '. The next bus on this route will arrive in ' + time + ' minute' + time.s + '.');
 								} else if(routeArg || (routeContext && route.Arrivals)) {
 									response.addSimpleResponse('The next bus on ' + route.Name + ' will arrive in ' + time + ' minute' + time.s + '.');
 								} else {
