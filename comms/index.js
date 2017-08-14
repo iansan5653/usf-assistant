@@ -172,6 +172,29 @@ module.exports.apiai = function(req, res, data) {
   // Get permission to access user location to find closest stop
   // Output context request_permission possibly includes route parameter
   function closestStopPermission(app) {
+  	var routeArg = app.getArgument('route'),
+  			routeContext = app.getContext('selected_route');
+
+  	if(routeArg) {
+	  	route = data.routes.find(routeObject => routeObject.Letter == routeArg);
+	  	//It's possible that the route argument doesn't correspond to a route:
+	  	if(route) {
+	  		// 5 minutes instead of 3 to give extra time to respond to location prompt
+	  		app.setContext('selected_route', 5, route);
+	  	}
+	  	// Set a source so we can use it to make more tailored responses
+	  	app.setContext('context_source', 3, {arg: true, context: false});
+
+	  	console.log('Route Argument');
+
+	  } else if(routeContext) {
+	  	route = routeContext.parameters;
+	  	app.setContext('selected_route', 3, route);
+	  	app.setContext('context_source', 3, {arg: false, context: true});
+
+	  	console.log('Route Context');
+	  }
+
   	app.askForPermission('To find stops near your location', app.SupportedPermissions.DEVICE_PRECISE_LOCATION);
   }
 
@@ -183,51 +206,40 @@ module.exports.apiai = function(req, res, data) {
   // Output context selected_route's timer will be reset if already set and user doesn't state a route
   // Output context selected_stop will be set with closest stop
   function closestStop(app) {
-  	var permissionContext = app.getContext('request_permission'),
-  			routeContext = app.getContext('selected_route'),
-  			allRoutes = app.getArgument('all_routes');
-
-  	console.log(permissionContext.parameters);
+  	var routeContext = app.getContext('selected_route'),
+  			allRoutes = app.getArgument('all_routes'),
+  			loc = app.getDeviceLocation();
 
   	// Only continue if permissions were granted and we could get a location
-		if (app.getDeviceLocation()) {
-		  var deviceCoordinates = app.getDeviceLocation().coordinates;
-
-		  var route = null;
-		  // Give the argument priority because it has to be more recent and more explicit
-		  if(!allRoutes) {
-			  if(permissionContext.parameters.route) {
-			  	route = data.routes.find(routeObject => routeObject.Letter == permissionContext.parameters.route);
-			  	// Set the route context for the future
-			  } else if(routeContext) {
-			  	route = routeContext.parameters;
-			  }
-			}
+		if (loc) {
+		  var route = routeContext ? routeContext.parameters : null;
+		  console.log(route);
 		  app.setContext('selected_route', 3, route);
 
 		  var closest = data.stops[0];
-		  console.log(closest);
-		  closest.Distance = getDistance(data.stops[0], deviceCoordinates);
+		  closest.Distance = getDistance(data.stops[0], loc.coordinates);
 
-		  data.stops.forEach(stop => {
+		  if (route) {
 		  	// If a route is specified, we want to avoid that math for stops on other routes
-		  	if(route) {
+		  	data.stops.forEach(stop => {
 		  		if(stop.Routes.includes(route.ID)) {
-		  			let distance = getDistance(stop, deviceCoordinates);
+		  			let distance = getDistance(stop, loc.coordinates);
 		  			if(distance < closest.Distance) {
 		  				closest = stop;
 		  				closest.Distance = distance;
 		  			}
 		  		}
+		  	});
+		  } else {
 		  	// If not, we have to do the calcs for every stop
-		  	} else {
-	  			let distance = getDistance(stop, deviceCoordinates);
+		  	data.stops.forEach(stop => {
+	  			let distance = getDistance(stop, loc.coordinates);
 	  			if(distance < closest.Distance) {
 	  				closest = stop;
 	  				closest.Distance = distance;
 	  			}
-		  	}
-		  });
+		  	});
+		  };
 
 		  // Set the stop context for followup questions
 		  app.setContext('selected_stop', 3, closest);
