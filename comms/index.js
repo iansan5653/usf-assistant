@@ -177,6 +177,8 @@ module.exports.apiai = function(req, res, data) {
 
   	if(routeArg) {
 	  	route = data.routes.find(routeObject => routeObject.Letter == routeArg);
+	  	console.log(routeArg);
+	  	console.log(route);
 	  	//It's possible that the route argument doesn't correspond to a route:
 	  	if(route) {
 	  		// 5 minutes instead of 3 to give extra time to respond to location prompt
