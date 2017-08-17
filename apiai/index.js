@@ -59,7 +59,7 @@ module.exports.update.routes = function(cachedData, key) {
 								synonyms.pushIfNew(route.Name.replace(/ *\([^)]*\) */g, "").trim());
 
 								var routeEntry = {
-									'value': route.Name,
+									'value': route.Letter,
 									'synonyms': synonyms
 								};
 								newEntries.push(routeEntry);
