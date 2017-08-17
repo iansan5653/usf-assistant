@@ -434,7 +434,7 @@ module.exports.apiai = function(req, res, data) {
 
 							} else {
 								// There are multiple routes going to this stop (it's a connecting stop) and we want to talk about all of them
-								var strings = ['There are ' + routes.length + ' routes serving this stop right now.'];
+								var strings = ['There are ' + routes.length + ' routes serving ' + stopPhrase + ' right now.'];
 
 								// For each route, find the time and add it to the strings
 								routes.forEach(stopRoute => {
@@ -454,7 +454,7 @@ module.exports.apiai = function(req, res, data) {
 								});
 
 								// Add a transition phrase to the last string if it's a longer list
-								if(strings.length > 2) {
+								if(strings.length > 3) {
 									strings[strings.length - 1] = strings[strings.length - 1].replace(/^\S+/g, 'Finally, on');
 								}
 
