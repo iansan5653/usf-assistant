@@ -406,10 +406,10 @@ module.exports.apiai = function(req, res, data) {
 
 								// Overwrite route, since there's only one possible route
 								// NOT WORKING (maybe) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-								if(routes.length == 1) route = data.routes.find(routeObject => routes[0].routeID == routeObject.ID);
+								if(routes.length == 1) route = data.routes.find(routeObject => routes[0].RouteID == routeObject.ID);
 								console.log(route);
-								console.log(routes[0].routeID);
-								console.log(data.routes.find(routeObject => routes[0].routeID == routeObject.ID));
+								console.log(routes[0].RouteID);
+								console.log(data.routes.find(routeObject => routes[0].RouteID == routeObject.ID));
 								app.setContext('selected_route', 3, route);
 
 								// Time until the next bus, in minutes
