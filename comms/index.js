@@ -417,7 +417,7 @@ module.exports.apiai = function(req, res, data) {
 								}
 								if (time < 0) time = 0;
 
-								time.s = (time == 1) ? '' : 's'; // If multiple or 0 minutes, use plural
+								timePlural = (time == 1) ? '' : 's'; // If multiple or 0 minutes, use plural
 
 								response
 									.addSuggestions(['Status of this route', 'Closest stop'])
@@ -427,9 +427,9 @@ module.exports.apiai = function(req, res, data) {
 								if(showAll) {
 									response.addSimpleResponse('The only route servicing this stop right now is ' + route.Name + '. The next bus on this route will arrive in ' + time + ' minute' + time.s + '.');
 								} else if(routeArg || (routeContext && route.Arrivals)) {
-									response.addSimpleResponse('The next bus on ' + route.Name + ' will arrive in ' + time + ' minute' + time.s + '.');
+									response.addSimpleResponse('The next bus on ' + route.Name + ' will arrive in ' + time + ' minute' + timePlural + '.');
 								} else {
-									response.addSimpleResponse('The next bus will arrive on ' + route.Name + ' in ' + time + ' minute' + time.s + '.');
+									response.addSimpleResponse('The next bus will arrive on ' + route.Name + ' in ' + time + ' minute' + timePlural + '.');
 								}
 
 							} else {
@@ -446,11 +446,11 @@ module.exports.apiai = function(req, res, data) {
 									}
 									if(time < 0) time = 0;
 
-									time.s = (time == 1) ? '' : 's'; // If multiple or 0 minutes, use plural units
+									timePlural = (time == 1) ? '' : 's'; // If multiple or 0 minutes, use plural units
 
 									var routeName = data.routes.find(routeObject => routeObject.ID == stopRoute.RouteID).Name;
 
-									strings.push('On ' + routeName + ', the next bus will arrive in ' + time + ' minute' + time.s + '.');
+									strings.push('On ' + routeName + ', the next bus will arrive in ' + time + ' minute' + timePlural + '.');
 								});
 
 								// Add a transition phrase to the last string if it's a longer list
