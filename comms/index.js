@@ -44,8 +44,10 @@ module.exports.apiai = function(req, res, data) {
   		if (!error && res1.statusCode == 200) {
   			if(bodyJSON.length === 0) {
   				app.tell(app.buildRichResponse()
-  					.addSimpleResponse('There aren\'t any active routes right now.' +
-  						'Please check the USF Bull Runner hours of operation, and remember that the hours change seasonally.')
+  					.addSimpleResponse(['There aren\'t any active routes right now. ' +
+  						'Please check the USF Bull Runner hours of operation, and note that the hours change seasonally.',
+  						'The Bull Runner is currently not operating. To see when it will reopen, check the Bull Runner hours of operation.',
+  						'All of the routes are closed right now. Check the Bull Runner hours of operation to see when they will reopen.'].random())
   					.addBasicCard(app.buildBasicCard('USF Bull Runner - Hours of Operation')
   						.addButton('View Hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
   					)
@@ -123,7 +125,7 @@ module.exports.apiai = function(req, res, data) {
 				if (!error && res1.statusCode == 200) {
 					if(activeBuses.length === 0) {
 						app.ask(app.buildRichResponse()
-	  					.addSimpleResponse(route.Name + ' isn\'t active right now. Try checking the USF Bull Runner hours of operation to see when it will be.')
+	  					.addSimpleResponse(route.Name + ' isn\'t active right now. Try checking the USF Bull Runner hours of operation to see when it will reopen.')
 	  					.addSuggestionLink('hours of operation', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
 	  					.addSuggestions(['Are any buses running?'])
 	  				);
@@ -371,7 +373,7 @@ module.exports.apiai = function(req, res, data) {
 							// Will be falsy if the route asked for is not one of the active routes
 
 							// {Marshall Student Center} (Stop {401})
-							var stopPhrase = stop.Name + '(Stop ' + stop.Number + ')';
+							var stopPhrase = stop.Name + (stopContext ? '' : ' (Stop ' + stop.Number + ')');
 
 							if(routeArg && !route.Arrivals) {
 								// A route was specifically asked for, but it isn't running right now
@@ -395,7 +397,7 @@ module.exports.apiai = function(req, res, data) {
 								// because contexts can be safely ignored if they are apparently incorrect
 
 								// Overwrite route, since there's only one possible route
-								// NOT WORKING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+								// NOT WORKING (maybe) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 								if(routes.length == 1) route = data.routes.find(routeObject => routes[0].routeID == routeObject.ID);
 								app.setContext('selected_route', 3, route);
 
