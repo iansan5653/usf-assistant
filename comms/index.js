@@ -84,9 +84,18 @@ module.exports.apiai = function(req, res, data) {
   // Takes no inputs, sets no contexts
   function hoursOperation(app) {
   	var response = app.buildRichResponse()
-  		.addSimpleResponse('Because the Bull Runner\'s hours change seasonally, I can\'t provide them. ' +
-  			'However, the current hours are available on the USF transportation website. ' +
-  			'Also, I can tell you which routes are currently operating - just ask!')
+  		.addSimpleResponse({
+  			text: 'Because the Bull Runner\'s hours change seasonally, I can\'t provide them myself. ' +
+  						'However, the current hours are available on the USF transportation website. ' +
+  						'Also, I can tell you which routes are currently operating — just ask!',
+  			speech: ` 
+  				<speak>
+  					<s>Because the Bull Runner's hours change seasonally, I can't provide them myself.</s> 
+  					<s>However, the current hours are available on the <say-as interpret-as="characters">USF</say-as> transportation website.</s> 
+  					<s>Also, I can tell you which routes are currently operating <break time="0.5s">— just ask!</s>
+  				</speak>
+  			`
+  		})
   		.addBasicCard(
   			app.buildBasicCard('USF Bull Runner - Hours of Operation')
 					.addButton('View Hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
