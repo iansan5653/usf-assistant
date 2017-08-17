@@ -88,13 +88,12 @@ module.exports.apiai = function(req, res, data) {
   			displayText: 'Because the Bull Runner\'s hours change seasonally, I can\'t provide them myself. ' +
   						'However, the current hours are available on the USF transportation website. ' +
   						'Also, I can tell you which routes are currently operating — just ask!',
-  			speech: ` 
-  				<speak>
-  					<s>Because the Bull Runner's hours change seasonally, I can't provide them myself.</s> 
-  					<s>However, the current hours are available on the <say-as interpret-as="characters">USF</say-as> transportation website.</s> 
-  					<s>Also, I can tell you which routes are currently operating <break time="0.5s">— just ask!</s>
-  				</speak>
-  			`
+  			speech: 
+  				'<speak>' +
+  					'Because the Bull Runner\'s hours change seasonally, I can\'t provide them myself.' +
+  					'However, the current hours are available on the <say-as interpret-as="characters">USF</say-as> transportation website.' +
+  					'Also, I can tell you which routes are currently operating <break time="0.5s">— just ask!' +
+  				'</speak>'
   		})
   		.addBasicCard(
   			app.buildBasicCard('USF Bull Runner - Hours of Operation')
