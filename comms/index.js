@@ -85,7 +85,7 @@ module.exports.apiai = function(req, res, data) {
   function hoursOperation(app) {
   	var response = app.buildRichResponse()
   		.addSimpleResponse({
-  			text: 'Because the Bull Runner\'s hours change seasonally, I can\'t provide them myself. ' +
+  			displayText: 'Because the Bull Runner\'s hours change seasonally, I can\'t provide them myself. ' +
   						'However, the current hours are available on the USF transportation website. ' +
   						'Also, I can tell you which routes are currently operating — just ask!',
   			speech: ` 
