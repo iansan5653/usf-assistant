@@ -92,7 +92,7 @@ module.exports.apiai = function(req, res, data) {
   				'<speak>' +
   					'Because the Bull Runner\'s hours change seasonally, I can\'t provide them myself. ' +
   					'However, the current hours are available on the <say-as interpret-as="characters">USF</say-as> transportation website. ' +
-  					'Also, I can tell you which routes are currently operating <break time="1s">— just ask!' +
+  					'Also, I can tell you which routes are currently operating <break time="0.5"> - just ask!' +
   				'</speak>'
   		})
   		.addBasicCard(
