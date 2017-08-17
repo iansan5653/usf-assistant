@@ -214,16 +214,22 @@ module.exports.apiai = function(req, res, data) {
   // Follows permission requesting intent
   // Input context request_permission from permission request may include route if user explicitly defined it
   // Input context selected_route may occur if user asked about a route recently, but we ignore it unless explicit
+  // Input context location may occur if user asked to show stops from all routes; to avoid having to ask for location permission again
   // Output context selected_route will be set if user explicitly states a route
   // Output context selected_route's timer will be reset if already set and user doesn't state a route
   // Output context selected_stop will be set with closest stop
+  // Outut context location will be set with the getDeviceLocation
   function closestStop(app) {
   	var routeContext = app.getContext('selected_route'),
-  			allRoutes = app.getArgument('all_routes'),
-  			loc = app.getDeviceLocation();
+  			locationContext = app.getContext('location'),
+  			allRoutes = app.getArgument('all_routes');
+
+  	var loc = app.getDeviceLocation() || locationContext.parameters;
 
   	// Only continue if permissions were granted and we could get a location
 		if (loc) {
+			app.setContext('location', 3, loc);
+
 		  var route = routeContext ? routeContext.parameters : null;
 		  console.log(route);
 		  app.setContext('selected_route', 3, route);
