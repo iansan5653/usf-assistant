@@ -332,10 +332,19 @@ module.exports.apiai = function(req, res, data) {
 
 	  if(!stop) {
 	  	// If a stop isn't specified by context or by argument
-	  	console.log(data.stops.random());
-  		response
-  			.addSimpleResponse('I can\'t tell which stop you would like to know about. It may help to refer to the stop by its number rather than its name.')
-  			.addSuggestions(['What is the closest stop?', 'Are any buses running?', 'Stop ' + data.stops.random().Number]);
+
+	  	if(!argument) {
+	  		response.addSimpleResponse('Which stop would you like to know the bus arrival times for?');
+	  	} else {
+	  		// There is an argument but it's invalid
+	  		response.addSimpleResponse('I can\'t tell which stop you would like to know about. It may help to refer to the stop by its number rather than its name.');
+	  	}
+
+	  	var suggestions = ['What is the closest stop?', 'Are any buses running?', 'Stop ' + data.stops.random().Number],
+	  			trySuggestion = data.stops.random().Name;
+	  	if (response.isValidSuggestionText(trySuggestion)) suggestions.push(trySuggestion);
+
+  		response.addSuggestions(['What is the closest stop?', 'Are any buses running?', 'Stop ' + data.stops.random().Number]);
   		app.ask(response);
 
 	  } else {
