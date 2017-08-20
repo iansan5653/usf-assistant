@@ -43,11 +43,11 @@ module.exports.apiai = function(req, res, data) {
 
   		if (!error && res1.statusCode == 200) {
   			if(bodyJSON.length === 0) {
-  				app.tell(app.buildRichResponse()
+  				app.ask(app.buildRichResponse()
   					.addSimpleResponse(['There aren\'t any active routes right now. ' +
   						'Please check the USF Bull Runner hours of operation, and note that the hours change seasonally.',
   						'The Bull Runner is currently not operating. To see when it will reopen, check the Bull Runner hours of operation.',
-  						'All of the routes are closed right now. Check the Bull Runner hours of operation to see when they will reopen.'].random())
+  						'All of the routes are inactive right now. Check the Bull Runner hours of operation to see when they will reopen.'].random())
   					.addBasicCard(app.buildBasicCard('USF Bull Runner - Hours of Operation')
   						.addButton('View Hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx')
   					)
@@ -333,7 +333,7 @@ module.exports.apiai = function(req, res, data) {
 	  if(!stop) {
 	  	// If a stop isn't specified by context or by argument
 
-	  	if(!argument) {
+	  	if(!stopArg) {
 	  		response.addSimpleResponse('Which stop would you like to know the bus arrival times for?');
 	  	} else {
 	  		// There is an argument but it's invalid
@@ -401,13 +401,13 @@ module.exports.apiai = function(req, res, data) {
 							if(routeArg && !route.Arrivals) {
 								// A route was specifically asked for, but it isn't running right now
 								response
-									.addSimpleResponse('That route isn\'t serving ' + stopPhrase + ' right now. Please check the Bull Runner hours of operation.')
+									.addSimpleResponse('That route isn\'t serving ' + stopPhrase + ' right now. Please check the Bull Runner hours of operation ad try again later.')
 									.addSuggestions(['Are the buses running?', 'Status of Route ' + route.Letter])
 									.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
 							} else if(routes.length === 0) {
 								// Stop is inactive
 								response
-									.addSimpleResponse('There aren\'t any buses serving ' + stopPhrase + ' right now. Please check the Bull Runner hours of operation.')
+									.addSimpleResponse('Arrival predictions aren\'t available for ' + stopPhrase + ' right now. Please check the Bull Runner hours of operation and try again later.')
 									.addSuggestions(['Are the buses running?', 'Status of Route ' + stop.Routes.letters.random()])
 									.addSuggestionLink('Bull Runner hours', 'http://www.usf.edu/administrative-services/parking/transportation/hours-of-operation.aspx');
 
@@ -438,13 +438,12 @@ module.exports.apiai = function(req, res, data) {
 									.addSuggestions(['Status of this route', 'Closest stop'])
 									.addSuggestionLink('nagivation', getNavURL(stop));
 
-
 								if(showAll) {
 									response.addSimpleResponse('The only route servicing this stop right now is ' + route.Name + '. The next bus on this route will arrive in ' + time + ' minute' + time.s + '.');
 								} else if(routeArg || (routeContext && route.Arrivals)) {
-									response.addSimpleResponse('The next bus on ' + route.Name + ' will arrive in ' + time + ' minute' + timePlural + '.');
+									response.addSimpleResponse('The next bus on ' + route.Name + ' will arrive at this stop in ' + time + ' minute' + timePlural + '.');
 								} else {
-									response.addSimpleResponse('The next bus will arrive on ' + route.Name + ' in ' + time + ' minute' + timePlural + '.');
+									response.addSimpleResponse('The next bus will arrive at this stop on ' + route.Name + ' in ' + time + ' minute' + timePlural + '.');
 								}
 
 							} else {
