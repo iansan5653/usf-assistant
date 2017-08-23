@@ -401,10 +401,13 @@ module.exports.apiai = function(req, res, data) {
 
 						var routes = null;
 						routesRaw.forEach(routeObject => {
+							console.log(routeObject);
 							var routeData = data.routes.find(routeObject2 => routeObject2.ID == routeObject.routeID);
+							console.log(routeData);
 							if(routeData) {
 								routes.push(routeObject);
 							}
+							console.log(routes);
 						});
 
 						if(!routes) {
