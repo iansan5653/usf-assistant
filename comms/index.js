@@ -263,7 +263,7 @@ module.exports.apiai = function(req, res, data) {
 	  				closest.Distance = distance;
 	  			}
 		  	});
-		  };
+		  }
 
 		  // Set the stop context for followup questions
 		  app.setContext('selected_stop', 3, closest);
@@ -402,7 +402,7 @@ module.exports.apiai = function(req, res, data) {
 						var routes = null;
 						routesRaw.forEach(routeObject => {
 							console.log(routeObject);
-							var routeData = data.routes.find(routeObject2 => routeObject2.ID == routeObject.routeID);
+							var routeData = data.routes.find(routeObject2 => routeObject2.ID == routeObject.RouteID);
 							console.log(routeData);
 							if(routeData) {
 								routes.push(routeObject);
