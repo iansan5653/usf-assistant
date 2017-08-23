@@ -57,10 +57,13 @@ module.exports.apiai = function(req, res, data) {
   				// Construct an array of active route letters
   				activeRoutes = [];
   				bodyJSON.forEach(activeRoute => {
-  					console.log(activeRoute);
   					var route = data.routes.find(cacheRoute => cacheRoute.ID == activeRoute.RouteID);
-  					console.log(route);
-  					activeRoutes.push(route.Letter);
+  					// So apparently some of the stops have routes serving them that don't exist....I'm talking to you, #3125
+  					if(route) {
+  						activeRoutes.push(route.Letter);
+  					} else {
+  						console.error("Route " + activeRoute.RouteID + " doesn't exist. Skipped.");
+  					}
   				});
   				activeRoutes.sort();
 
@@ -280,7 +283,7 @@ module.exports.apiai = function(req, res, data) {
 		  	var routeLetters = [];
 		  	closest.Routes.forEach(routeNumber => {
 		  		routeLetter = data.routes.find(routeObject => routeObject.ID == routeNumber).Letter;
-		  		routeLetters.push(routeLetter);
+		  		if(routeLetter) routeLetters.push(routeLetter);
 		  	});
 
 		  	if (routeLetters.length == 1) {
@@ -356,7 +359,10 @@ module.exports.apiai = function(req, res, data) {
 
 	  	// Build an array of routes serving the stop
 	  	stop.Routes.letters = [];
-	  	stop.Routes.forEach(routeID => stop.Routes.letters.push(data.routes.find(routeObject => routeObject.ID == routeID).Letter));
+	  	stop.Routes.forEach(routeID => {
+	  		let routeLetter = data.routes.find(routeObject => routeObject.ID == routeID).Letter;
+				if(routeLetter) stop.Routes.letters.push(routeLetter);
+	  	});
 
 	  	if(routeArg && !route) {
 		  	// A route is not required, but if they do ask for a specific one and it isn't defined that's a problem
@@ -383,13 +389,23 @@ module.exports.apiai = function(req, res, data) {
 
 					} else {
 
-						var routes = null;
+						var routesRaw = null;
 						// There's always a chance the response is malformed:
 						try {
-							routes = JSON.parse(body);
+							routesRaw = JSON.parse(body);
 						} catch(err) {
 							console.error(err);
 						}
+
+						// routesRaw may contain routes we don't have data on; sometimes the bull runner does chartered buses and such
+
+						var routes = null;
+						routesRaw.forEach(routeObject => {
+							var routeData = data.routes.find(routeObject2 => routeObject2.ID == routeObject.routeID);
+							if(routeData) {
+								routes.push(routeObject);
+							}
+						});
 
 						if(!routes) {
 							app.tell('Sorry, there was an issue processing information from the Bull Runner server. Please try again later.');
