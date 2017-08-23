@@ -38,6 +38,7 @@ module.exports.apiai = function(req, res, data) {
   // Takes no inputs, sets no contexts
   function overallStatus(app) {
   	request('https://usfbullrunner.com/Stop/95548/Arrivals?customerID=3', (error, res1, body) => {
+  		// Using stop #95548 because Marshall Student Center is a hub for all routes
 
   		bodyJSON = JSON.parse(body);
 
@@ -56,7 +57,9 @@ module.exports.apiai = function(req, res, data) {
   				// Construct an array of active route letters
   				activeRoutes = [];
   				bodyJSON.forEach(activeRoute => {
+  					console.log(activeRoute);
   					var route = data.routes.find(cacheRoute => cacheRoute.ID == activeRoute.RouteID);
+  					console.log(route);
   					activeRoutes.push(route.Letter);
   				});
   				activeRoutes.sort();
