@@ -399,15 +399,12 @@ module.exports.apiai = function(req, res, data) {
 
 						// routesRaw may contain routes we don't have data on; sometimes the bull runner does chartered buses and such
 
-						var routes = null;
+						var routes = [];
 						routesRaw.forEach(routeObject => {
-							console.log(routeObject);
 							var routeData = data.routes.find(routeObject2 => routeObject2.ID == routeObject.RouteID);
-							console.log(routeData);
 							if(routeData) {
 								routes.push(routeObject);
 							}
-							console.log(routes);
 						});
 
 						if(!routes) {
